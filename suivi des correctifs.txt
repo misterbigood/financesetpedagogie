@@ -1,0 +1,6 @@
+2012-07-09
+Correctif apporté sur:
+- Suppression des images zoom (fichier: lettredinformation-edit.inc.php, ligne 143):
+	Erreur sur la variable, $_FILES["z_image"] devient $_FILES["z_image"]["name"];
+- Test sur les images lors de la création du HTML de la newsletter (fichier: lettr, edinformation-html-create.php, lignes 129 et 146):
+	Test de l'existence du fichier et vérification qu'il s'agit d'un fichier et non d'un dossier avant de lancer l'affichage de la balise <img>;
