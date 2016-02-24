@@ -30,3 +30,4 @@ $data[0] = array ( "uniq_id" => $uniq_id, "actif_li" => $actif_li, "datederniere
 // Si aucune erreur sur les variables
 $bdderror["bdd"] = modification_li( $data );	
 }
+?>

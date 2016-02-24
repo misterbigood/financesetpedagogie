@@ -130,4 +130,4 @@ else
     </div>
 </body>
 </html>
-<?php require("libraries/secure/bddisconnect.req.php");
+<?php require("libraries/secure/bddisconnect.req.php"); ?>

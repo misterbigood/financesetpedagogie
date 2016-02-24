@@ -106,34 +106,34 @@ if(isset($_FILES["am_image"]) && $_FILES["am_image"]["name"] <> "")
 	switch ($_FILES["am_image"]["error"] ) 
 	{
 		case UPLOAD_ERR_NO_FILE:
-			$z_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à la rubrique 'Zoom' a échoué.");
+			$am_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à la rubrique 'Arrêt métier' a échoué.");
 			break;
 		case UPLOAD_ERR_INI_SIZE:
-			$z_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à la rubrique 'Zoom' est trop importante. L'image n'a pas été chargée.");
+			$am_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à la rubrique 'Arrêt métier' est trop importante. L'image n'a pas été chargée.");
 			break;
 		case UPLOAD_ERR_FORM_SIZE:
-			$z_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à la rubrique 'Zoom' est trop importante. L'image n'a pas été chargée.");
+			$am_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à la rubrique 'Arrêt métier' est trop importante. L'image n'a pas été chargée.");
 			break;
 		case UPLOAD_ERR_PARTIAL:
-			$z_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à la rubrique 'Zoom' a échoué.");
+			$am_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à la rubrique 'Arrêt métier' a échoué.");
 			break;
 		default: 
-			$z_imgerror[]  = array( "etat" => TRUE, "texte" => "");
+			$am_imgerror[]  = array( "etat" => TRUE, "texte" => "");
 			$extension_am_image = strtolower(  substr(  strrchr($_FILES['am_image']['name'], '.')  ,1)  );
-			if( !in_array($extension_am_image,$extensions_valides) ) $z_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à la rubrique 'Zoom' n'est pas autorisée.");
+			if( !in_array($extension_am_image,$extensions_valides) ) $am_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à la rubrique 'Arrêt métier' n'est pas autorisée.");
 	}
 	$z_countimgerrors = 0;
-	foreach($z_imgerror as $key => $value) if($value["etat"] == FALSE) $z_countimgerrors++;
-	if($z_countimgerrors == 0) {	
+	foreach($am_imgerror as $key => $value) if($value["etat"] == FALSE) $am_countimgerrors++;
+	if($am_countimgerrors == 0) {	
 		$am_image_name = md5(uniqid(rand(), true)).".".$extension_am_image;
-		$z_resultat = move_uploaded_file($_FILES["am_image"]["tmp_name"], "../".$config["images"].$am_image_name);
+		$am_resultat = move_uploaded_file($_FILES["am_image"]["tmp_name"], "../".$config["images"].$am_image_name);
 	}
 	else $am_image_name="";
 
-if (!isset($z_resultat) || $z_resultat == FALSE) $z_imgerror[] = array( "etat" => FALSE, "texte" => "L'image associée à la rubrique 'Zoom' n'a pu être transférée.");
+if (!isset($am_resultat) || $am_resultat == FALSE) $am_imgerror[] = array( "etat" => FALSE, "texte" => "L'image associée à la rubrique 'Arrêt métier' n'a pu être transférée.");
 }
 else { 
-	$z_imgerror[] = array( "etat" => TRUE, "texte" => "");
+	$am_imgerror[] = array( "etat" => TRUE, "texte" => "");
 	$am_image_name="";
 }
 

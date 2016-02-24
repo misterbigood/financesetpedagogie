@@ -69,8 +69,7 @@ else
         <option value="<?php echo $numerosuivant+2; ?>"><?php echo $numerosuivant+2; ?></option>
          <option value="<?php echo $numerosuivant+3; ?>"><?php echo $numerosuivant+3; ?></option>
        </select>
-        <label for="titre">Titre / Objet de la lettre d'information</label>
-        <input type="text" name="li_titre" id="li_titre" />
+       <input type="hidden" name="li_titre" id="li_titre" value="La lettre d'information de Finances & Pédagogie"/>
        <label for="mois">Mois de la lettre d'information</label>
        <select name="mois">
             <option>Janvier</option>
@@ -96,10 +95,7 @@ else
         <label for="lienfrancais">Adresse http du PDF en français</label>
         <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/xxxxxxxxxxx.pdf)</span>
         <input type="text" name="lienfrancais">
-        <label for="lienanglais">Adresse http du PDF en anglais</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/xxxxxxxxxxx.pdf)</span>
-        <input type="text" name="lienanglais">
-        <label for="li_chapeau">Texte d'introduction de la lettre d'information</label>
+        <label for="li_chapeau">Edito</label>
         <textarea name="li_chapeau" id="li_chapeau" class="chapeau"></textarea>
     </div>
     <h3><a href="#">Rubrique: A la une</a></h3>
@@ -119,20 +115,6 @@ else
          <label for="alu_intitule_lien">Descriptif du lien</label>
         <input type="text" name="alu_intitule_lien">
     </div>
-    <h3><a href="#">Rubrique: Arrêt métier</a></h3>
-    <div>
-        <label for="am_titre">Titre</label>
-        <input type="text" name="am_titre">
-        <label for="am_chapeau">Chap&ocirc;</label>
-        <textarea name="am_chapeau" id="am_chapeau" class="chapeau"></textarea>
-        <label for="am_article">Contenu de l'article</label>
-        <textarea name="am_article" id="am_article"></textarea>
-         <label for="am_lien">Lien http associé</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
-        <input type="text" name="am_lien">
-         <label for="am_intitule_lien">Descriptif du lien</label>
-        <input type="text" name="am_intitule_lien">
-     </div>
     <h3><a href="#">Rubrique: Zoom</a></h3>
     <div>
         <label for="z_titre">Titre</label>
@@ -147,6 +129,20 @@ else
         <input type="text" name="z_lien">
         <label for="z_intitule_lien">Descriptif du lien</label>
         <input type="text" name="z_intitule_lien">
+     </div>
+    <h3><a href="#">Rubrique: Arrêt métier</a></h3>
+    <div>
+        <label for="am_titre">Titre</label>
+        <input type="text" name="am_titre">
+        <label for="am_chapeau">Chap&ocirc;</label>
+        <textarea name="am_chapeau" id="am_chapeau" class="chapeau"></textarea>
+        <label for="am_article">Contenu de l'article</label>
+        <textarea name="am_article" id="am_article"></textarea>
+         <label for="am_lien">Lien http associé</label>
+        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
+        <input type="text" name="am_lien">
+         <label for="am_intitule_lien">Descriptif du lien</label>
+        <input type="text" name="am_intitule_lien">
      </div>
     <h3><a href="#">Rubrique: Nos partenaires</a></h3>
     <div>

@@ -46,7 +46,7 @@ if( isset($_POST["form_send"]) && $_POST["form_send"] == 1 )
                     }
                 }
                 ?></p>
-    <p class="erreur"><?php                foreach ($z_imgerror as $key => $value) {
+    <p class="erreur"><?php                foreach ($am_imgerror as $key => $value) {
                     if ($value["etat"] == FALSE) {
                         echo $value["texte"] . "<br />";
                     }
@@ -86,8 +86,8 @@ else
         <option value="<?php echo $tableau_classe[0]["numero"]+2; ?>"><?php echo $tableau_classe[0]["numero"]+2; ?></option>
         <option value="<?php echo $tableau_classe[0]["numero"]+3; ?>"><?php echo $tableau_classe[0]["numero"]+3; ?></option>
        </select>
-        <label for="titre">Titre / Objet de la lettre d'information</label>
-        <input type="text" name="li_titre" id="li_titre" value="<?php echo stripslashes($tableau_classe[0]["li_titre"]); ?>" />
+        
+        <input type="hidden" name="li_titre" id="li_titre" value="La lettre d'information de Finances & Pédagogie" />
        <label for="mois">Mois de la lettre d'information</label>
        <select name="mois">
            <option value="Janvier" <?php                   if ($data_unseries["mois"] == "Janvier") {
@@ -148,10 +148,6 @@ else
         <label for="lienfrancais">Adresse http du PDF en français</label>
         <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/xxxxxxxxxxx.pdf)</span>
         <input type="text" name="lienfrancais" value="<?php echo $tableau_classe[0]["lienpdffr"]; ?>" />
-        <label for="lienanglais">Adresse http du PDF en anglais</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/xxxxxxxxxxx.pdf)</span>
-        <input type="text" name="lienanglais" value="<?php echo $tableau_classe[0]["lienpdfen"]; ?>" />
-        
        
         <label for="li_chapeau">Edito</label>
         <textarea name="li_chapeau" id="li_chapeau" class="chapeau"><?php echo stripslashes($data_unseries["li_chapeau"]); ?></textarea>
@@ -176,8 +172,17 @@ else
         <label for="alu_lien">Lien http associé</label>
         <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
         <input type="text" name="alu_lien" value="<?php echo stripslashes($data_unseries["alu_lien"]); ?>" />
-         <label for="alu_intitule_lien">Descriptif du lien</label>
+         <label for="alu_intitule_lien">Légende</label>
         <input type="text" name="alu_intitule_lien" value="<?php echo stripslashes($data_unseries["alu_intitule_lien"]); ?>" />
+    </div>
+    <h2><a href="#">Rubrique: Zoom</a></h2>
+    <div>
+        <label for="z_titre">Titre</label>
+        <input type="text" name="z_titre" value="<?php echo stripslashes($data_unseries["z_titre"]); ?>" />
+         <label for="z_chapeau">Chap&ocirc;</label>
+        <textarea name="z_chapeau" id="z_chapeau" class="chapeau"><?php echo stripslashes($data_unseries["z_chapeau"]); ?></textarea>
+       <label for="z_article">Contenu de l'article</label>
+         <textarea name="z_article" id="z_article"><?php echo stripslashes($data_unseries["z_article"]); ?></textarea>
     </div>
     <h2><a href="#">Rubrique: Arrêt métier</a></h2>
     <div>
@@ -201,15 +206,6 @@ else
         <input type="text" name="am_lien" value="<?php echo stripslashes($data_unseries["am_lien"]); ?>" />
          <label for="am_intitule_lien">Descriptif du lien</label>
         <input type="text" name="am_intitule_lien" value="<?php echo stripslashes($data_unseries["am_intitule_lien"]); ?>" />
-    </div>
-    <h2><a href="#">Rubrique: Zoom</a></h2>
-    <div>
-        <label for="z_titre">Titre</label>
-        <input type="text" name="z_titre" value="<?php echo stripslashes($data_unseries["z_titre"]); ?>" />
-         <label for="z_chapeau">Chap&ocirc;</label>
-        <textarea name="z_chapeau" id="z_chapeau" class="chapeau"><?php echo stripslashes($data_unseries["z_chapeau"]); ?></textarea>
-       <label for="z_article">Contenu de l'article</label>
-         <textarea name="z_article" id="z_article"><?php echo stripslashes($data_unseries["z_article"]); ?></textarea>
     </div>
     <h2><a href="#">Rubrique: Notre partenaire</a></h2>
     <div>
@@ -378,4 +374,4 @@ $(function() {
     </div>
 </body>
 </html>
-<?php require("libraries/secure/bddisconnect.req.php");
+<?php require("libraries/secure/bddisconnect.req.php"); ?>

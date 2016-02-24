@@ -206,4 +206,4 @@ if( isset($_POST["form_send_stat"]) && $_POST["form_send_stat"] == 1 )
 </html>
 <?php } 
 require("./libraries/secure/bddisconnect.req.php"); 
-$content=ob_get_flush();
+$content=ob_get_flush(); ?>
