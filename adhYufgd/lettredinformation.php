@@ -33,7 +33,7 @@ require("libraries/secure/fonctions.req.php");
             "sInfoEmpty": "Affichage de 0 à 0 sur 0 enregistrements",
             "sInfoFiltered": "(filtrés sur _MAX_ lettres d'informations)"
         },
-		"aaSorting": [[ 4, "asc" ]],
+		"aaSorting": [[ 4, "desc" ]],
 		"aoColumns": [
             null,
 			null,
@@ -103,7 +103,10 @@ require("libraries/secure/fonctions.req.php");
                     <td><?php if( $value["datepremierenvoi"]<> "0000-00-00 00:00:00" ){ echo $value["datepremierenvoi"]; } else { echo "-";} ?></td>
                     <td><?php if( $value["datedernierenvoi"]<> "0000-00-00 00:00:00" ){ echo $value["datedernierenvoi"]; } else { echo "-";} ?></td>
                     <td><?php if($value["actif_li"]>=0) {?><a href="lettredinformation-edit.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Modifier la lettre d'information"><img src="medias/icones/news-edit.png" alt="Modifier la lettre d'information" /></a><?php } ?>
-                    <?php if($value["actif_li"] ==-1) {?><a href="lettredinformation-activation.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Réactiver la lettre d'information"><img src="medias/icones/news-edit.png" alt="Réactiver la lettre d'information" /></a><?php } ?><a href="lettredinformation-sup.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Supprimer la lettre d'information"><img src="medias/icones/news-del.png" alt="Supprimer la lettre d'information" /></a><a href="lettredinformation-html-create.php?uniq_id=<?php echo $value["uniq_id"]; ?>" target="_blank" title="Afficher la lettre d'information"><img src="medias/icones/news-visu.png" alt="Afficher les détails de la lettre d'information"/></a></td>
+                    <?php if($value["actif_li"] ==-1) {?><a href="lettredinformation-activation.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Réactiver la lettre d'information"><img src="medias/icones/news-edit.png" alt="Réactiver la lettre d'information" /></a><?php } ?>
+                    <a href="lettredinformation-sup.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Supprimer la lettre d'information"><img src="medias/icones/news-del.png" alt="Supprimer la lettre d'information" /></a>
+                    <?php if($value["actif_li"] ==-1) {?> <a href="<?php echo $config["serveur"].$config["root"].$config["li_html"].$value['uniq_id'].".html"; ?>" target="_blank"> <?php } 
+                    else {?><a href="lettredinformation-html-create.php?uniq_id=<?php echo $value["uniq_id"]; ?>" target="_blank" title="Afficher la lettre d'information"><?php } ?><img src="medias/icones/news-visu.png" alt="Afficher les détails de la lettre d'information"/></a></td>
 				</tr>
                 
 			 <?php
