@@ -179,8 +179,6 @@ else
     <div>
         <label for="z_titre">Titre</label>
         <input type="text" name="z_titre" value="<?php echo stripslashes($data_unseries["z_titre"]); ?>" />
-         <label for="z_chapeau">Chap&ocirc;</label>
-        <textarea name="z_chapeau" id="z_chapeau" class="chapeau"><?php echo stripslashes($data_unseries["z_chapeau"]); ?></textarea>
        <label for="z_article">Contenu de l'article</label>
          <textarea name="z_article" id="z_article"><?php echo stripslashes($data_unseries["z_article"]); ?></textarea>
     </div>
@@ -211,8 +209,6 @@ else
     <div>
         <label for="no_titre">Titre</label>
         <input type="text" name="no_titre" value="<?php echo stripslashes($data_unseries["no_titre"]); ?>" />
-         <label for="no_chapeau">Chap&ocirc;</label>
-        <textarea name="no_chapeau" id="no_chapeau" class="chapeau"><?php echo stripslashes($data_unseries["no_chapeau"]); ?></textarea>
        <label for="no_article">Contenu de l'article</label>
          <textarea name="no_article" id="no_article"><?php echo stripslashes($data_unseries["no_article"]); ?></textarea>
     </div>
@@ -222,31 +218,17 @@ else
         <input type="text" name="act1_titre" value="<?php echo stripslashes($data_unseries["act1_titre"]); ?>" />
         <label for="act1_article">Actualit&eacute; 1 - Contenu de l'article</label>
         <textarea name="act1_article" id="act1_article"><?php echo stripslashes($data_unseries["act1_article"]); ?></textarea>
-        <label for="act1_lien">Actualit&eacute; 1 - Lien http associé</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
-        <input type="text" name="act1_lien" value="<?php echo stripslashes($data_unseries["act1_lien"]); ?>" />
-        <label for="act1_intitule_lien">Actualit&eacute; 1 - Descriptif du lien</label>
-        <input type="text" name="act1_intitule_lien" value="<?php echo stripslashes($data_unseries["act1_intitule_lien"]); ?>" />
+        <br>
         <label for="act2_titre">Actualit&eacute; 2 - Titre</label>
         <input type="text" name="act2_titre" value="<?php echo stripslashes($data_unseries["act2_titre"]); ?>" />
         <label for="act2_article">Actualit&eacute; 2 - Contenu de l'article</label>
         <textarea name="act2_article" id="act2_article"><?php echo stripslashes($data_unseries["act2_article"]); ?></textarea>
-        <label for="act2_lien">Actualit&eacute; 2 - Lien http associé</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
-        <input type="text" name="act2_lien" value="<?php echo stripslashes($data_unseries["act2_lien"]); ?>" />
-        <label for="act2_intitule_lien">Actualit&eacute; 2 - Descriptif du lien</label>
-        <input type="text" name="act2_intitule_lien" value="<?php echo stripslashes($data_unseries["act2_intitule_lien"]); ?>" />
     </div>
     <h2><a href="#">Rubrique: Autres titres</a></h2>
     <div>
         <label for="at_article">Liste des autres titres</label>
          <textarea name="at_article"><?php $at_article_temp = stripslashes($data_unseries["at_article"]); echo str_replace("<ul>", "", str_replace("</ul>", "", str_replace("<li>","<p>", str_replace("</li>", "</p>", $at_article_temp)))); ?></textarea>
     </div>
-    <h3><a href="#">Rubrique: Mentions légales</a></h3>
-    <div>
-        <label for="ml_article">Liste des autres titres</label>
-         <textarea name="ml_article"><?php echo stripslashes($data_unseries["ml_article"]); ?></textarea>
-     </div>
     <h3><a href="#">Paramètres d'envoi</a></h2>
     <div>
           <label for="actif">Activation de la lettre d'information</label>
@@ -312,7 +294,7 @@ $(function() {
 		theme : "advanced",
 		width: "500",
 		height: "180",
-		theme_advanced_buttons1: "bold, italic, underline",
+		theme_advanced_buttons1: "bold, italic, underline, |, bullist",
 		theme_advanced_buttons2 :"",
 		theme_advanced_buttons3 : "",
 		theme_advanced_toolbar_location : "bottom",
@@ -320,14 +302,16 @@ $(function() {
 	});
 </script>
 <script type="text/javascript">
+    
+
 	tinyMCE.init({
 		mode : "exact",
-		elements: "act1_article",
+		elements: "act1_article, act2_article",
 		theme : "advanced",
 		width: "500",
 		height: "180",
-		theme_advanced_styles: "Question=question",
-		theme_advanced_buttons1: "bold, italic, underline, |, styleselect",
+		theme_advanced_blockformats: "p,h1,h2,h3",
+		theme_advanced_buttons1: "bold, italic, underline, |, formatselect",
 		theme_advanced_buttons2 :"",
 		theme_advanced_buttons3 : "",
 		theme_advanced_toolbar_location : "bottom",

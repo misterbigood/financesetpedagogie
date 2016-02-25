@@ -121,14 +121,6 @@ else
         <input type="text" name="z_titre">
        <label for="z_article">Contenu de l'article</label>
          <textarea name="z_article" id="z_article"></textarea>
-        <label for="am_image">Image associée</label>
-        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
-        <input type="file" name="am_image">
-         <label for="z_lien">Lien http associé</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
-        <input type="text" name="z_lien">
-        <label for="z_intitule_lien">Descriptif du lien</label>
-        <input type="text" name="z_intitule_lien">
      </div>
     <h3><a href="#">Rubrique: Arrêt métier</a></h3>
     <div>
@@ -138,7 +130,10 @@ else
         <textarea name="am_chapeau" id="am_chapeau" class="chapeau"></textarea>
         <label for="am_article">Contenu de l'article</label>
         <textarea name="am_article" id="am_article"></textarea>
-         <label for="am_lien">Lien http associé</label>
+        <label for="am_image">Image associée</label>
+        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
+        <input type="file" name="am_image">
+        <label for="am_lien">Lien http associé</label>
         <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
         <input type="text" name="am_lien">
          <label for="am_intitule_lien">Descriptif du lien</label>
@@ -148,8 +143,6 @@ else
     <div>
         <label for="no_titre">Titre</label>
         <input type="text" name="no_titre">
-        <label for="no_chapeau">Chap&ocirc;</label>
-        <textarea name="no_chapeau" id="no_chapeau" class="chapeau"></textarea>
         <label for="no_article">Contenu de l'article</label>
         <textarea name="no_article" id="no_article"></textarea>
     </div>
@@ -159,30 +152,16 @@ else
         <input type="text" name="act1_titre">
         <label for="act1_article">Actualit&eacute; 1 - Contenu de l'article</label>
         <textarea name="act1_article" id="act1_article"></textarea>
-        <label for="act1_lien">Actualit&eacute; 1 - Lien http associé</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
-        <input type="text" name="act1_lien">
-        <label for="act1_intitule_lien">Actualit&eacute; 1 - Descriptif du lien</label>
-        <input type="text" name="act1_intitule_lien">
+        <br>
         <label for="act2_titre">Actualit&eacute; 2 - Titre</label>
         <input type="text" name="act2_titre">
         <label for="act2_article">Actualit&eacute; 2 - Contenu de l'article</label>
         <textarea name="act2_article" id="act2_article"></textarea>
-        <label for="act2_lien">Actualit&eacute; 2 - Lien http associé</label>
-        <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/)</span>
-        <input type="text" name="act2_lien">
-        <label for="act2_intitule_lien">Actualit&eacute; 2 - Descriptif du lien</label>
-        <input type="text" name="act2_intitule_lien">
      </div>
     <h3><a href="#">Rubrique: Autres titres</a></h3>
     <div>
         <label for="at_article">Liste des autres titres</label>
          <textarea name="at_article"></textarea>
-     </div>
-     <h3><a href="#">Rubrique: Mentions légales</a></h3>
-    <div>
-        <label for="ml_article">Liste des autres titres</label>
-         <textarea name="ml_article"></textarea>
      </div>
     <h3><a href="#">Paramètres d'envoi</a></h3>
     <div>
@@ -249,7 +228,7 @@ $(function() {
 <script type="text/javascript">
 	tinyMCE.init({
 		mode : "exact",
-		elements: "act1_article",
+		elements: "act1_article, act2_article",
 		theme : "advanced",
 		width: "500",
 		height: "180",
@@ -288,7 +267,7 @@ $(function() {
 <div id="menu">
 	<ul>
         <li><a href="lettredinformation.php" title="Retour à la liste des lettres d'information"><img src="medias/icones/retour.png" height="64" alt="Retour à la liste des lettres d'information" /></a></li>
-        <li><a href="lettredinformation-visu.php" title="Visualiser la lettre d'information"><img src="medias/icones/news-visu.png" height="64" alt="Visualiser la lettre d'information" /></a></li>
+        <!-- <li><a href="lettredinformation-html-create.php" title="Visualiser la lettre d'information"><img src="medias/icones/news-visu.png" height="64" alt="Visualiser la lettre d'information" /></a></li> -->
         <!-- <li><a href="lettredinformation-print.php" title="Imprimer la lettre d'information"><img src="medias/icones/news-print.png" height="64" alt="Imprimer la lettre d'information" /></a></li> -->
     </ul>
 </div>

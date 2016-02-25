@@ -136,7 +136,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
                                             <tr><!-- visualisation dans navigateur web -->
                                                 <td align="center" class="w640"  width="640" height="20"> 
-                                                    <a style="color:#000000; font-size:10px; text-decoration:none;" href="#" ><span style="color:#000000; font-size:10px;">Si vous ne visualisez pas correctement la lettre d’information, cliquez ici pour l’ouvrir dans votre navigateur web.</span></a> </td>
+                                                    <span style="color:#000000; font-size:10px;">Si vous ne visualisez pas correctement la lettre d’information, <a href="<?php echo $config["serveur"].$config["root"].$config["li_html"].$uniq_id.".html"; ?>" target="_blank">cliquez ici</a> pour l’ouvrir dans votre navigateur web.</span></td>
 
                                             </tr>
                                             <tr><!-- en tête -->
@@ -203,32 +203,32 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
 
                                             <tr><!-- A la une -->
-                                                <td width="660" height="600">
+                                                <td width="660">
                                                     <table  class="w660"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#ececec">
                                                         <tbody>
                                                             <tr>
 
-                                                                <td width="15" height="600" rowspan="8">
+                                                                <td width="15" rowspan="8">
                                                                 </td>
-                                                                <td width="25" height="600" rowspan="8" bgcolor="#ECECEC">
+                                                                <td width="25" rowspan="8" bgcolor="#ECECEC">
                                                                 </td>
                                                                 <td width="590" height="21" colspan="7" bgcolor="#ECECEC">
                                                                 </td>
-                                                                <td width="15" height="600" rowspan="8" bgcolor="#ECECEC">
+                                                                <td width="15" rowspan="8" bgcolor="#ECECEC">
                                                                 </td>
-                                                                <td width="15" height="600" rowspan="8"></td>
+                                                                <td width="15" rowspan="8"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td width="590" height="20" colspan="7">
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>alaune.png" width="590" height="20" alt=""></td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="308" height="229" rowspan="3" style="vertical-align:top">
+                                                                <td width="308" rowspan="3" style="vertical-align:top">
                                                                     <h1><?php echo $alu_titre; ?></h1>
                                                                     <div class="chapo">
                                                                         <?php echo $alu_chapeau; ?></div>
                                                                 </td>
-                                                                <td width="282" height="185" colspan="6">
+                                                                <td width="282" colspan="6">
                                                                     <?php if(file_exists($config["fromadmin"].$image_path.$alu_image) && is_file($config["fromadmin"].$image_path.$alu_image) ) { ?><img src="<?php echo $config["serveur"].$config["root"].$image_path.$alu_image; ?>" width="282" alt="Image A la une"><?php } ?></td>
                                                             </tr>
                                                             <tr>
@@ -237,7 +237,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                             <tr>
                                                                 <td width="10" height="40" style="border-left:solid 2px #E41A18;">
                                                                 </td>
-                                                                <td width="272" height="40" colspan="5" class="extrait">
+                                                                <td width="272" colspan="5" class="extrait">
                                                                     <?php if ($alu_lien<>"") {?>
                                                                     <a href="<?php echo $alu_lien; ?>"><?php echo $alu_intitule_lien; ?></a>
                                                                     <?php }
@@ -245,10 +245,10 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="406" height="330" colspan="3" rowspan="3" style="vertical-align:top">
+                                                                <td width="406" colspan="3" rowspan="3" style="vertical-align:top">
                                                                     <?php echo $alu_article; ?>
                                                                     </td>
-                                                                <td width="9" height="330" rowspan="3">
+                                                                <td width="9" rowspan="3">
                                                                 </td>
                                                                 <td width="175" height="25" colspan="3" >
                                                                 </td>
@@ -258,15 +258,16 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>alaune-zoom.png" width="175" height="40" alt=""></td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="10" height="265" bgcolor="#ffffff">
+                                                                <td width="10" bgcolor="#ffffff">
                                                                 </td>
-                                                                <td width="155" height="265" bgcolor="#ffffff">
+                                                                <td width="155" bgcolor="#ffffff">
                                                                     <h3><?php echo $z_titre; ?></h3>
                                                                     <?php echo $z_article; ?>
                                                                             </td>
-                                                                            <td width="10" height="265" bgcolor="#ffffff">
+                                                                            <td width="10" bgcolor="#ffffff">
                                                                             </td>
                                                                             </tr>
+                                                            <tr><td colspan="5" height="16" bgcolor="#ECECEC"></td></tr>
 
                                                                             </tbody>
                                                                             </table>
@@ -282,46 +283,46 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
 
                                                                             <tr> <!-- Arret métier -->
-                                                                                <td width="660" height="707">
+                                                                                <td width="660" >
                                                                                     <table  class="w630"  width="630" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
                                                                                         <tbody>
 
                                                                                             <tr>
-                                                                                                <td width="40" height="707" rowspan="9"></td>
+                                                                                                <td width="40" rowspan="9"></td>
                                                                                                 <td width="590" height="20" colspan="5"></td>
-                                                                                                <td width="30" height="707" rowspan="9"></td>
+                                                                                                <td width="30" rowspan="9"></td>
                                                                                             </tr>
                                                                                             <tr>
                                                                                                 <td width="590" height="13" colspan="5">
                                                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>arret-metier.png" width="590" height="20" alt=""></td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td width="405" height="667" rowspan="6" style="vertical-align:top">
+                                                                                                <td width="405" rowspan="6" style="vertical-align:top">
                                                                                                     <h1><?php echo $am_titre; ?></h1>
                                                                                                     <div class="chapo"><?php echo $am_chapeau; ?></div>
                                                                                                     <?php echo $am_article; ?>
                                                                                                     </td>
-                                                                                                <td width="10" height="137">
+                                                                                                <td width="10" >
                                                                                                 </td>
-                                                                                                <td width="175" height="137" colspan="3">
+                                                                                                <td width="175"  colspan="3">
                                                                                                     <?php if(file_exists($config["fromadmin"].$image_path.$am_image) && is_file($config["fromadmin"].$image_path.$am_image) ) { ?><img src="<?php echo $config["serveur"].$config["root"].$image_path.$am_image; ?>" width="175" alt="Arrêt métier"><?php } ?>
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td width="10" height="530" rowspan="5">
+                                                                                                <td width="10" rowspan="5">
                                                                                                 </td>
                                                                                                 <td width="175" height="20" colspan="3"></td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td width="10" height="100" style="border-left:solid 2px #E41A18;">
+                                                                                                <td width="10" style="border-left:solid 2px #E41A18;">
                                                                                                 </td>
-                                                                                                <td width="155" height="100" class="extrait">
+                                                                                                <td width="155" class="extrait">
                                                                                                 <?php if ($am_lien<>"") {?>
                                                                                                 <a href="<?php echo $am_lien; ?>"><?php echo $am_intitule_lien; ?></a>
                                                                                                 <?php }
                                                                                                 else { echo $am_intitule_lien; } ?>
                                                                                                 </td>
-                                                                                                <td width="10" height="100">
+                                                                                                <td width="10" >
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
@@ -333,12 +334,12 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>arret-metier-notre-partenaire.png" width="175" height="40" alt=""></td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td width="10" height="360" bgcolor="#f4f4f4"></td>
-                                                                                                <td width="155" height="360" bgcolor="#f4f4f4" class="small" valign="top">
+                                                                                                <td width="10" bgcolor="#f4f4f4"></td>
+                                                                                                <td width="155" bgcolor="#f4f4f4" class="small" valign="top">
                                                                                                     <h3><?php echo $no_titre; ?></h3>
                                                                                                     <?php echo $no_article; ?>
                                                                                                 </td>
-                                                                                                <td width="10" height="360" bgcolor="#f4f4f4">
+                                                                                                <td width="10" bgcolor="#f4f4f4">
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
@@ -358,7 +359,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
 
                                                                             <tr><!--Actualités  -->
-                                                                                <td width="660" height="298" bgcolor="#ebd9e5">
+                                                                                <td width="660" bgcolor="#ebd9e5">
                                                                                     <table  class="w630"  width="630" cellpadding="0" cellspacing="0" border="0" >
                                                                                         <tbody>
                                                                                             <tr>
@@ -376,64 +377,25 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                                 <td width="590" height="20" colspan="8"></td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td width="185" height="225" rowspan="9" style="vertical-align:top">
+                                                                                                <td width="185" height="225" style="vertical-align:top">
                                                                                                     <h2><?php echo $act1_titre; ?></h2>
                                                                                                     <?php echo $act1_article; ?>
                                                                                                     
                                                                                                 </td>
-                                                                                                <td width="10" height="225" rowspan="9"></td>
-                                                                                                <td width="195" height="225" rowspan="9"style="vertical-align:top">
+                                                                                                <td width="10" height="225"></td>
+                                                                                                <td width="195" height="225" style="vertical-align:top">
                                                                                                     <h2><?php echo $act2_titre; ?></h2>
                                                                                                     <?php echo $act2_article; ?>
                                                                                                 </td>
-                                                                                                <td width="10" height="225" rowspan="9" bgcolor="#ffffff"></td>
-                                                                                                <td width="10" height="225" rowspan="9" bgcolor="#ffffff"></td>
-                                                                                                <td colspan="2"></td>
-                                                                                                <td width="15" height="225" rowspan="9" bgcolor="#ffffff"></td>
-                                                                                            </tr>
-                                                                                           <!--Autres actualités  -->
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td colspan="2" width="165" height="45" bgcolor="#ffffff" style="vertical-align:top;" >
+                                                                                                <td width="10" height="225" bgcolor="#ffffff"></td>
+                                                                                                <td width="10" height="225" bgcolor="#ffffff"></td>
+                                                                                                <td width="165" bgcolor="#ffffff" style="vertical-align:top;">
                                                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>actualites-autres.png" width="165" height="45" alt="">
-                                                                                                </td>
+                                                                                                    <?php echo $at_article; ?></td>
+                                                                                                <td width="15" height="225" bgcolor="#ffffff"></td>
                                                                                             </tr>
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td colspan="2" width="165" height="5" style="border-top:dotted 1px #919294;" >
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td width="5" height="35" style="border-left:solid 2px #E41A18;">
-                                                                                                </td>
-                                                                                                <td width="160" height="35" >
-                                                                                                    Ingénieurs agronomes et créateurs</td>
-                                                                                            </tr bgcolor="#ffffff">
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td colspan="2" width="165" height="5" style="border-top:dotted 1px #919294;">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td width="5" height="25" style="border-left:solid 2px #E41A18;">
-                                                                                                </td>
-                                                                                                <td width="160" height="25">L'argent et les séniors
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td colspan="2" width="165" height="5"style="border-top:dotted 1px #919294;">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td width="5" height="49" style="border-left:solid 2px #E41A18;">
-                                                                                                </td>
-                                                                                                <td rowspan="2" width="160" height="97" style="vertical-align:top"> F&P fête les 10 ans de la CAE 
-                                                                                                    Sensibiliser les jeunes au service civique
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr bgcolor="#ffffff">
-                                                                                                <td width="5" height="48">
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td width="590" height="18" colspan="8">
+                                                                                                                                                                                    <tr>
+                                                                                                <td height="18" colspan="8">
                                                                                                 </td>
                                                                                             </tr>
                                                                                         </tbody>
