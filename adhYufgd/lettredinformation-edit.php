@@ -194,7 +194,7 @@ else
         	<label for="am_actuelle">Image actuelle:</label> <img src="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["am_image"]); ?>" height="80" name="am_actuelle" />
 			<input type="hidden" name="am_image_old" value="<?php echo stripslashes($data_unseries["am_image"]); ?>" />
             <label for="actif">Supprimer l'image actuelle</label>
-            <input type="checkbox" name="z_suppr" id="z_suppr" value="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["am_image"]); ?>" />
+            <input type="checkbox" name="am_suppr" id="z_suppr" value="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["am_image"]); ?>" />
 		<?php } ?>
         <label for="am_image">Associer une nouvelle image</label>
         <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
@@ -218,11 +218,29 @@ else
         <input type="text" name="act1_titre" value="<?php echo stripslashes($data_unseries["act1_titre"]); ?>" />
         <label for="act1_article">Actualit&eacute; 1 - Contenu de l'article</label>
         <textarea name="act1_article" id="act1_article"><?php echo stripslashes($data_unseries["act1_article"]); ?></textarea>
+        <?php if($data_unseries["act1_image"]<>"") {?>
+        	<label for="act1_actuelle">Image actuelle:</label> <img src="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["act1_image"]); ?>" height="80" name="act1_actuelle" />
+			<input type="hidden" name="act1_image_old" value="<?php echo stripslashes($data_unseries["act1_image"]); ?>" />
+            <label for="actif">Supprimer l'image actuelle</label>
+            <input type="checkbox" name="act1_suppr" id="act1_suppr" value="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["act1_image"]); ?>" />
+		<?php } ?>
+        <label for="act1_image">Associer une nouvelle image</label>
+        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
+        <input type="file" name="act1_image" />
         <br>
         <label for="act2_titre">Actualit&eacute; 2 - Titre</label>
         <input type="text" name="act2_titre" value="<?php echo stripslashes($data_unseries["act2_titre"]); ?>" />
         <label for="act2_article">Actualit&eacute; 2 - Contenu de l'article</label>
         <textarea name="act2_article" id="act2_article"><?php echo stripslashes($data_unseries["act2_article"]); ?></textarea>
+        <?php if($data_unseries["act2_image"]<>"") {?>
+        	<label for="act2_actuelle">Image actuelle:</label> <img src="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["act2_image"]); ?>" height="80" name="act2_actuelle" />
+			<input type="hidden" name="act2_image_old" value="<?php echo stripslashes($data_unseries["act2_image"]); ?>" />
+            <label for="actif">Supprimer l'image actuelle</label>
+            <input type="checkbox" name="act2_suppr" id="act2_suppr" value="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["act2_image"]); ?>" />
+		<?php } ?>
+        <label for="act2_image">Associer une nouvelle image</label>
+        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
+        <input type="file" name="act2_image" />
     </div>
     <h2><a href="#">Rubrique: Autres titres</a></h2>
     <div>
@@ -290,7 +308,7 @@ $(function() {
 <script type="text/javascript">
 	tinyMCE.init({
 		mode : "exact",
-		elements: "li_chapeau, alu_chapeau, alu_article, am_chapeau, am_article, z_article, no_article, at_article, ml_article",
+		elements: "li_chapeau, alu_chapeau, am_chapeau, z_article, no_article, at_article, ml_article",
 		theme : "advanced",
 		width: "500",
 		height: "180",
@@ -306,7 +324,7 @@ $(function() {
 
 	tinyMCE.init({
 		mode : "exact",
-		elements: "act1_article, act2_article",
+		elements: "act1_article, act2_article, alu_article, am_article",
 		theme : "advanced",
 		width: "500",
 		height: "180",

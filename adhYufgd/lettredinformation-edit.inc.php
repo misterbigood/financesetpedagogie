@@ -48,10 +48,15 @@ isset($_SESSION["CONNEXION_VALIDE"]) or header("location: http://".$_SERVER['HTT
 	$act1_article   = isset($_POST["act1_article"])       ?   $_POST["act1_article"]:"";
 	$act1_lien      = isset($_POST["act1_lien"])             ?   $_POST["act1_lien"]:"";
 	$act1_intitule_lien = isset($_POST["act1_intitule_lien"])   ?   $_POST["act1_intitule_lien"]:"";
+        $act1_image_old  = isset($_POST["act1_image_old"])    ? $_POST["act1_image_old"]:"";
+	$act1_suppr        = isset($_POST["act1_suppr"])    ? $_POST["act1_suppr"]:"";
 	$act2_titre     = isset($_POST["act2_titre"])           ?   $_POST["act2_titre"]:"";
 	$act2_article   = isset($_POST["act2_article"])       ?   $_POST["act2_article"]:"";
 	$act2_lien      = isset($_POST["act2_lien"])             ?   $_POST["act2_lien"]:"";
 	$act2_intitule_lien = isset($_POST["act2_intitule_lien"])   ?   $_POST["act2_intitule_lien"]:"";
+        $act2_image_old  = isset($_POST["act2_image_old"])    ? $_POST["act2_image_old"]:"";
+	$act2_suppr        = isset($_POST["act2_suppr"])    ? $_POST["act2_suppr"]:"";
+	
         
 	// Variables de la rubrique autres titres: remplacement des paragraphes ou listes préformatées par nouvelle liste préformatée
 	$at_article     = isset($_POST["at_article"])           ?   "<ul class='at_article'>".str_replace("</p>", "</li>", str_replace("<p>", "<li>", str_replace("<ul>", "", str_replace("</ul>", "", $_POST["at_article"])) ) )."</ul>":"";
@@ -154,6 +159,90 @@ if($_FILES["am_image"]["name"]=="" && $am_suppr <> "")
         if(!unlink($am_suppr)) {$am_imgerror[] = array( "etat" => FALSE, "texte" => "La suppression sur le serveur de l'image associée à la rubrique 'Arrêt métier' a échoué. Elle a cependant été supprimée de la base de données.");}
 }
 
+if(isset($_FILES["act1_image"]) && $_FILES["act1_image"]["name"] <> "")
+{
+	switch ($_FILES["act1_image"]["error"] )
+	{
+		case UPLOAD_ERR_NO_FILE:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'actualité 1 a échoué.");
+			break;
+		case UPLOAD_ERR_INI_SIZE:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'actualité 1 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_FORM_SIZE:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'actualité 1 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_PARTIAL:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'actualité 1 a échoué.");
+			break;
+		default: 
+			$act1_imgerror[]  = array( "etat" => TRUE, "texte" => "");
+			$extension_act1_image = strtolower(  substr(  strrchr($_FILES['act1_image']['name'], '.')  ,1)  );
+                        if( !in_array($extension_act1_image,$extensions_valides) ) { $act1_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à l'actualité 1 n'est pas autorisée."); }
+
+	}
+	$act1_countimgerrors = 0;
+        foreach($act1_imgerror as $key => $value) if($value["etat"] == FALSE) { $act1_countimgerrors++; }
+	if($act1_countimgerrors == 0) {
+		$act1_image_name = md5(uniqid(rand(), true)).".".$extension_act1_image;
+		$act1_resultat = move_uploaded_file($_FILES["act1_image"]["tmp_name"], "../".$config["images"].$act1_image_name);
+	}
+        else { $act1_image_name=$act1_image_old; }
+if (!isset($act1_resultat) || $act1_resultat == FALSE) {$act1_imgerror[] = array( "etat" => FALSE, "texte" => "L'image associée à l'actualité 1 n'a pu être transférée.");}
+}
+else {
+	$act1_imgerror[] = array( "etat" => TRUE, "texte" => "");
+	$act1_image_name=$act1_image_old;
+}
+// Suppression de l'ancienne image si demandé
+if($_FILES["act1_image"]["name"] == "" && $act1_suppr <> "")
+{
+	$act1_image_name="";
+        if(!unlink($act1_suppr)) {$act1_imgerror[] = array( "etat" => FALSE, "texte" => "La suppression sur le serveur de l'image associée à l'actualité 1 a échoué. Elle a cependant été supprimée de la base de données.");}
+}
+
+if(isset($_FILES["act2_image"]) && $_FILES["act2_image"]["name"] <> "")
+{
+	switch ($_FILES["act2_image"]["error"] )
+	{
+		case UPLOAD_ERR_NO_FILE:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'actualité 2 a échoué.");
+			break;
+		case UPLOAD_ERR_INI_SIZE:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'actualité 2 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_FORM_SIZE:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'actualité 2 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_PARTIAL:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'actualité 2 a échoué.");
+			break;
+		default: 
+			$act2_imgerror[]  = array( "etat" => TRUE, "texte" => "");
+			$extension_act2_image = strtolower(  substr(  strrchr($_FILES['act2_image']['name'], '.')  ,1)  );
+                        if( !in_array($extension_act2_image,$extensions_valides) ) { $act2_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à l'actualité 2 n'est pas autorisée."); }
+
+	}
+	$act2_countimgerrors = 0;
+        foreach($act2_imgerror as $key => $value) if($value["etat"] == FALSE) { $act2_countimgerrors++; }
+	if($act2_countimgerrors == 0) {
+		$act2_image_name = md5(uniqid(rand(), true)).".".$extension_act2_image;
+		$act2_resultat = move_uploaded_file($_FILES["act2_image"]["tmp_name"], "../".$config["images"].$act2_image_name);
+	}
+        else { $act2_image_name=$act2_image_old; }
+if (!isset($act2_resultat) || $act2_resultat == FALSE) {$act2_imgerror[] = array( "etat" => FALSE, "texte" => "L'image associée à l'actualité 2 n'a pu être transférée.");}
+}
+else {
+	$act2_imgerror[] = array( "etat" => TRUE, "texte" => "");
+	$act2_image_name=$act2_image_old;
+}
+// Suppression de l'ancienne image si demandé
+if($_FILES["act2_image"]["name"] == "" && $act2_suppr <> "")
+{
+	$act2_image_name="";
+        if(!unlink($act2_suppr)) {$act2_imgerror[] = array( "etat" => FALSE, "texte" => "La suppression sur le serveur de l'image associée à l'actualité 2 a échoué. Elle a cependant été supprimée de la base de données.");}
+}
+
 // 3: COnstruction du tableau des variables à transmettre
 $datatoserialize = array(
 	"image_path"		=> $config["images"],
@@ -183,10 +272,12 @@ $datatoserialize = array(
 	"act1_article"			=> $act1_article,
 	"act1_lien"			=> $act1_lien,
 	"act1_intitule_lien"	=> $act1_intitule_lien,
+        "act1_image"            => $act1_image_name,
         "act2_titre"			=> $act2_titre,
 	"act2_article"			=> $act2_article,
 	"act2_lien"			=> $act2_lien,
 	"act2_intitule_lien"	=> $act2_intitule_lien,
+        "act2_image"            => $act2_image_name,
 	"at_article"		=> $at_article,
 	"ml_article"		=> $ml_article	
 );

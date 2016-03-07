@@ -56,11 +56,12 @@ $act1_titre				=	stripslashes($data_unseries["act1_titre"]);
 $act1_article				=	stripslashes($data_unseries["act1_article"]);
 $act1_lien					=	stripslashes($data_unseries["act1_lien"]);
 $act1_intitule_lien		=	stripslashes($data_unseries["act1_intitule_lien"]);
-
+$act1_image		=	stripslashes($data_unseries["act1_image"]);
 $act2_titre				=	stripslashes($data_unseries["act2_titre"]);
 $act2_article				=	stripslashes($data_unseries["act2_article"]);
 $act2_lien					=	stripslashes($data_unseries["act2_lien"]);
 $act2_intitule_lien		=	stripslashes($data_unseries["act2_intitule_lien"]);
+$act2_image		=	stripslashes($data_unseries["act2_image"]);
 
 $at_article				=	stripslashes($data_unseries["at_article"]);
 $ml_article				=	stripslashes($data_unseries["ml_article"]);
@@ -208,26 +209,30 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                         <tbody>
                                                             <tr>
 
-                                                                <td width="15" rowspan="8">
+                                                                <td width="15" rowspan="9">
                                                                 </td>
-                                                                <td width="25" rowspan="8" bgcolor="#ECECEC">
+                                                                <td width="25" rowspan="9" bgcolor="#ECECEC">
                                                                 </td>
-                                                                <td width="590" height="21" colspan="7" bgcolor="#ECECEC">
+                                                                <td width="590" height="21" colspan="8" bgcolor="#ECECEC">
                                                                 </td>
-                                                                <td width="15" rowspan="8" bgcolor="#ECECEC">
+                                                                <td width="15" rowspan="9" bgcolor="#ECECEC">
                                                                 </td>
-                                                                <td width="15" rowspan="8"></td>
+                                                                <td width="15" rowspan="9"></td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="590" height="20" colspan="7">
+                                                                <td width="590" height="20" colspan="8">
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>alaune.png" width="590" height="20" alt=""></td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="308" rowspan="3" style="vertical-align:top">
+                                                                <td colspan=8" height="8"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="298" rowspan="3" style="vertical-align:top">
                                                                     <h1><?php echo $alu_titre; ?></h1>
                                                                     <div class="chapo">
                                                                         <?php echo $alu_chapeau; ?></div>
                                                                 </td>
+                                                                <td width="10" rowspan="3"></td>
                                                                 <td width="282" colspan="6">
                                                                     <?php if(file_exists($config["fromadmin"].$image_path.$alu_image) && is_file($config["fromadmin"].$image_path.$alu_image) ) { ?><img src="<?php echo $config["serveur"].$config["root"].$image_path.$alu_image; ?>" width="282" alt="Image A la une"><?php } ?></td>
                                                             </tr>
@@ -237,7 +242,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                             <tr>
                                                                 <td width="10" height="40" style="border-left:solid 2px #E41A18;">
                                                                 </td>
-                                                                <td width="272" colspan="5" class="extrait">
+                                                                <td width="272" colspan="5" class="extrait" style="vertical-align:top">
                                                                     <?php if ($alu_lien<>"") {?>
                                                                     <a href="<?php echo $alu_lien; ?>"><?php echo $alu_intitule_lien; ?></a>
                                                                     <?php }
@@ -245,7 +250,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="406" colspan="3" rowspan="3" style="vertical-align:top">
+                                                                <td width="406" colspan="4" rowspan="3" style="vertical-align:top">
                                                                     <?php echo $alu_article; ?>
                                                                     </td>
                                                                 <td width="9" rowspan="3">
@@ -267,7 +272,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                             <td width="10" bgcolor="#ffffff">
                                                                             </td>
                                                                             </tr>
-                                                            <tr><td colspan="5" height="16" bgcolor="#ECECEC"></td></tr>
+                                                            <tr><td colspan="12" height="16" bgcolor="#ECECEC"></td></tr>
 
                                                                             </tbody>
                                                                             </table>
@@ -284,7 +289,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
                                                                             <tr> <!-- Arret métier -->
                                                                                 <td width="660" >
-                                                                                    <table  class="w630"  width="630" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
+                                                                                    <table  class="w630"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
                                                                                         <tbody>
 
                                                                                             <tr>
@@ -360,7 +365,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
                                                                             <tr><!--Actualités  -->
                                                                                 <td width="660" bgcolor="#ebd9e5">
-                                                                                    <table  class="w630"  width="630" cellpadding="0" cellspacing="0" border="0" >
+                                                                                    <table  class="w630"  width="660" cellpadding="0" cellspacing="0" border="0" >
                                                                                         <tbody>
                                                                                             <tr>
                                                                                                 <td width="15" height="298" rowspan="13"></td>
@@ -380,12 +385,14 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                                 <td width="185" height="225" style="vertical-align:top">
                                                                                                     <h2><?php echo $act1_titre; ?></h2>
                                                                                                     <?php echo $act1_article; ?>
+                                                                                                    <?php if(file_exists($config["fromadmin"].$image_path.$act1_image) && is_file($config["fromadmin"].$image_path.$act1_image) ) { ?><img src="<?php echo $config["serveur"].$config["root"].$image_path.$act1_image; ?>" width="185" alt="Actualité 1"><?php } ?>
                                                                                                     
                                                                                                 </td>
                                                                                                 <td width="10" height="225"></td>
                                                                                                 <td width="195" height="225" style="vertical-align:top">
                                                                                                     <h2><?php echo $act2_titre; ?></h2>
                                                                                                     <?php echo $act2_article; ?>
+                                                                                                    <?php if(file_exists($config["fromadmin"].$image_path.$act2_image) && is_file($config["fromadmin"].$image_path.$act2_image) ) { ?><img src="<?php echo $config["serveur"].$config["root"].$image_path.$act2_image; ?>" width="185" alt="Actualité 2"><?php } ?>
                                                                                                 </td>
                                                                                                 <td width="10" height="225" bgcolor="#ffffff"></td>
                                                                                                 <td width="10" height="225" bgcolor="#ffffff"></td>

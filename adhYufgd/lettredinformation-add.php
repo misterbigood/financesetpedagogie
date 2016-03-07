@@ -152,11 +152,17 @@ else
         <input type="text" name="act1_titre">
         <label for="act1_article">Actualit&eacute; 1 - Contenu de l'article</label>
         <textarea name="act1_article" id="act1_article"></textarea>
+        <label for="act1_image">Image associée</label>
+        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
+        <input type="file" name="act1_image">
         <br>
         <label for="act2_titre">Actualit&eacute; 2 - Titre</label>
         <input type="text" name="act2_titre">
         <label for="act2_article">Actualit&eacute; 2 - Contenu de l'article</label>
         <textarea name="act2_article" id="act2_article"></textarea>
+        <label for="act2_image">Image associée</label>
+        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
+        <input type="file" name="act2_image">
      </div>
     <h3><a href="#">Rubrique: Autres titres</a></h3>
     <div>

@@ -122,7 +122,7 @@ if(isset($_FILES["am_image"]) && $_FILES["am_image"]["name"] <> "")
 			$extension_am_image = strtolower(  substr(  strrchr($_FILES['am_image']['name'], '.')  ,1)  );
 			if( !in_array($extension_am_image,$extensions_valides) ) $am_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à la rubrique 'Arrêt métier' n'est pas autorisée.");
 	}
-	$z_countimgerrors = 0;
+	$am_countimgerrors = 0;
 	foreach($am_imgerror as $key => $value) if($value["etat"] == FALSE) $am_countimgerrors++;
 	if($am_countimgerrors == 0) {	
 		$am_image_name = md5(uniqid(rand(), true)).".".$extension_am_image;
@@ -135,6 +135,78 @@ if (!isset($am_resultat) || $am_resultat == FALSE) $am_imgerror[] = array( "etat
 else { 
 	$am_imgerror[] = array( "etat" => TRUE, "texte" => "");
 	$am_image_name="";
+}
+
+if(isset($_FILES["act1_image"]) && $_FILES["act1_image"]["name"] <> "")
+{
+	switch ($_FILES["act1_image"]["error"] )
+	{
+		case UPLOAD_ERR_NO_FILE:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'article 1 a échoué.");
+			break;
+		case UPLOAD_ERR_INI_SIZE:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'article 1 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_FORM_SIZE:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'article 1 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_PARTIAL:
+			$act1_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'article 1 a échoué.");
+			break;
+		default: 
+			$act1_imgerror[]  = array( "etat" => TRUE, "texte" => "");
+			$extension_act1_image = strtolower(  substr(  strrchr($_FILES['act1_image']['name'], '.')  ,1)  );
+			if( !in_array($extension_act1_image,$extensions_valides) ) $act1_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à l'article 1 n'est pas autorisée.");
+
+	}
+	$act1_countimgerrors = 0;
+	foreach($act1_imgerror as $key => $value) if($value["etat"] == FALSE) $act1_countimgerrors++;
+	if($act1_countimgerrors == 0) {
+		$act1_image_name = md5(uniqid(rand(), true)).".".$extension_act1_image;
+		$act1_resultat = move_uploaded_file($_FILES["act1_image"]["tmp_name"], "../".$config["images"].$act1_image_name);
+	}
+	else $act1_image_name="";
+if (!isset($act1_resultat) || $act1_resultat == FALSE) $act1_imgerror[] = array( "etat" => FALSE, "texte" => "L'image associée à l'article 1 n'a pu être transférée.");
+}
+else {
+	$act1_imgerror[] = array( "etat" => TRUE, "texte" => "");
+	$act1_image_name="";
+}
+
+if(isset($_FILES["act2_image"]) && $_FILES["act2_image"]["name"] <> "")
+{
+	switch ($_FILES["act2_image"]["error"] )
+	{
+		case UPLOAD_ERR_NO_FILE:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'article 2 a échoué.");
+			break;
+		case UPLOAD_ERR_INI_SIZE:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'article 2 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_FORM_SIZE:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'article 2 est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_PARTIAL:
+			$act2_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'article 2 a échoué.");
+			break;
+		default: 
+			$act2_imgerror[]  = array( "etat" => TRUE, "texte" => "");
+			$extension_act2_image = strtolower(  substr(  strrchr($_FILES['act2_image']['name'], '.')  ,1)  );
+			if( !in_array($extension_act2_image,$extensions_valides) ) $act2_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à l'article 2 n'est pas autorisée.");
+
+	}
+	$act2_countimgerrors = 0;
+	foreach($act2_imgerror as $key => $value) if($value["etat"] == FALSE) $act2_countimgerrors++;
+	if($act2_countimgerrors == 0) {
+		$act2_image_name = md5(uniqid(rand(), true)).".".$extension_act2_image;
+		$act2_resultat = move_uploaded_file($_FILES["act2_image"]["tmp_name"], "../".$config["images"].$act2_image_name);
+	}
+	else $act2_image_name="";
+if (!isset($act2_resultat) || $act2_resultat == FALSE) $act2_imgerror[] = array( "etat" => FALSE, "texte" => "L'image associée à l'article 2 n'a pu être transférée.");
+}
+else {
+	$act2_imgerror[] = array( "etat" => TRUE, "texte" => "");
+	$act2_image_name="";
 }
 
 
@@ -167,10 +239,12 @@ $datatoserialize = array(
 	"act1_article"			=> $act1_article,
 	"act1_lien"			=> $act1_lien,
 	"act1_intitule_lien"	=> $act1_intitule_lien,
+        "act1_image"            => $act1_image_name,
         "act2_titre"			=> $act2_titre,
 	"act2_article"			=> $act2_article,
 	"act2_lien"			=> $act2_lien,
 	"act2_intitule_lien"	=> $act2_intitule_lien,
+        "act2_image"            => $act2_image_name,
 	"at_article"		=> $at_article,
 	"ml_article"		=> $ml_article	
 );
