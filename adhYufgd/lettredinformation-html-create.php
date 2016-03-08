@@ -394,7 +394,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                                     <?php echo $act2_article; ?>
                                                                                                     <?php if(file_exists($config["fromadmin"].$image_path.$act2_image) && is_file($config["fromadmin"].$image_path.$act2_image) ) { ?><img src="<?php echo $config["serveur"].$config["root"].$image_path.$act2_image; ?>" width="185" alt="Actualité 2"><?php } ?>
                                                                                                 </td>
-                                                                                                <td width="10" height="225" bgcolor="#ffffff"></td>
+                                                                                                <td width="10" height="225"></td>
                                                                                                 <td width="10" height="225" bgcolor="#ffffff"></td>
                                                                                                 <td width="165" bgcolor="#ffffff" style="vertical-align:top;">
                                                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>actualites-autres.png" width="165" height="45" alt="">
