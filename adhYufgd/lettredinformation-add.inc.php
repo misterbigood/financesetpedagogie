@@ -50,8 +50,12 @@ isset($_SESSION["CONNEXION_VALIDE"]) or header("location: http://".$_SERVER['HTT
 	$act2_intitule_lien = isset($_POST["act2_intitule_lien"])   ?   $_POST["act2_intitule_lien"]:"";
 	
 	// Variables de la rubrique autres titres: remplacement des paragraphes ou listes préformatées par nouvelle liste préformatée
-	$at_article     = isset($_POST["at_article"])           ?   "<ul class='at_article'>".str_replace("</p>", "</li>", str_replace("<p>", "<li>", str_replace("<ul>", "", str_replace("</ul>", "", $_POST["at_article"])) ) )."</ul>":"";
-	
+        $tempo_titres = isset($_POST["mytext"])    ? $_POST["mytext"]:"";
+        foreach($tempo_titres as $at_titre){
+            if($at_titre<>"") {
+                $at_titres[]=$at_titre;
+            }
+        }
 	// Variables de la rubrique mentions légales
 	$ml_article     = isset($_POST["ml_article"])           ?   $_POST["ml_article"]:"";
 	
@@ -245,7 +249,7 @@ $datatoserialize = array(
 	"act2_lien"			=> $act2_lien,
 	"act2_intitule_lien"	=> $act2_intitule_lien,
         "act2_image"            => $act2_image_name,
-	"at_article"		=> $at_article,
+	"at_titres"		=> serialize($at_titres),
 	"ml_article"		=> $ml_article	
 );
 

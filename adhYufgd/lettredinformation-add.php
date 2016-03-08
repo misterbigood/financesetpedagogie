@@ -165,10 +165,9 @@ else
         <input type="file" name="act2_image">
      </div>
     <h3><a href="#">Rubrique: Autres titres</a></h3>
-    <div>
-        <label for="at_article">Liste des autres titres</label>
-         <textarea name="at_article"></textarea>
-     </div>
+    <div class="input_fields_wrap">
+     <button class="add_field_button">Ajouter un titre</button>
+    </div>
     <h3><a href="#">Paramètres d'envoi</a></h3>
     <div>
           <label for="actif">Activation de la lettre d'information</label>
@@ -211,6 +210,24 @@ $(function() {
 	});
 </script>
 <script>
+    $(document).ready(function() {
+     var max_fields      = 8; //maximum input boxes allowed
+     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+     var add_button      = $(".add_field_button"); //Add button ID
+     
+     var x = 1; //initlal text box count
+     $(add_button).click(function(e){ //on add input button click
+         e.preventDefault();
+         if(x < max_fields){ //max input box allowed
+             x++; //text box increment
+             $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Supprimer</a></div>'); //add input box
+         }
+     });
+     
+     $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+         e.preventDefault(); $(this).parent('div').remove(); x--;
+     })
+});
 	$(function() {
 		$( "#dateactivationenvoi" ).datepicker();
 	});

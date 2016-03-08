@@ -243,9 +243,14 @@ else
         <input type="file" name="act2_image" />
     </div>
     <h2><a href="#">Rubrique: Autres titres</a></h2>
-    <div>
-        <label for="at_article">Liste des autres titres</label>
-         <textarea name="at_article"><?php $at_article_temp = stripslashes($data_unseries["at_article"]); echo str_replace("<ul>", "", str_replace("</ul>", "", str_replace("<li>","<p>", str_replace("</li>", "</p>", $at_article_temp)))); ?></textarea>
+    <div class="input_fields_wrap">
+     <button class="add_field_button">Ajouter un titre</button>
+     <?php $at_titres = unserialize($data_unseries['at_titres']);
+     foreach($at_titres as $at_titre) {
+         $at_titres_counter++;
+     ?>
+     <div><input type="text" name="mytext[]" value="<?php echo $at_titre; ?>"><a href="#" class="remove_field">Supprimer</a></div>
+     <?php } ?>
     </div>
     <h3><a href="#">Paramètres d'envoi</a></h2>
     <div>
@@ -289,6 +294,24 @@ $content = ob_get_clean();
 <script type="text/javascript" src="libraries/jquery-ui-1.8.16.custom.min.js"></script>
 <script type="text/javascript" src="libraries/jquery.ui.datepicker-fr.js"></script>
 <script type="text/javascript">
+    $(document).ready(function() {
+     var max_fields      = <?php echo 9-$at_titres_counter;?>; //maximum input boxes allowed
+     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+     var add_button      = $(".add_field_button"); //Add button ID
+     
+     var x = 1; //initlal text box count
+     $(add_button).click(function(e){ //on add input button click
+         e.preventDefault();
+         if(x < max_fields){ //max input box allowed
+             x++; //text box increment
+             $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Supprimer</a></div>'); //add input box
+         }
+     });
+     
+     $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+         e.preventDefault(); $(this).parent('div').remove(); x--;
+     })
+});
 $(function() {
 		$( "#accordion" ).accordion({
 			autoHeight: false,

@@ -63,7 +63,7 @@ $act2_lien					=	stripslashes($data_unseries["act2_lien"]);
 $act2_intitule_lien		=	stripslashes($data_unseries["act2_intitule_lien"]);
 $act2_image		=	stripslashes($data_unseries["act2_image"]);
 
-$at_article				=	stripslashes($data_unseries["at_article"]);
+$at_titres				=	unserialize(stripslashes($data_unseries["at_titres"]));
 $ml_article				=	stripslashes($data_unseries["ml_article"]);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -398,7 +398,12 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                                 <td width="10" height="225" bgcolor="#ffffff"></td>
                                                                                                 <td width="165" bgcolor="#ffffff" style="vertical-align:top;">
                                                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>actualites-autres.png" width="165" height="45" alt="">
-                                                                                                    <?php echo $at_article; ?></td>
+                                                                                                        <table>
+                                                                                                            <?php foreach($at_titres as $at_titre) {?>
+                                                                                                            <tr><td style="border-left:solid 2px #E41A18;" width="5"></td><td><?php echo $at_titre;?></td></tr>
+                                                                                                            <tr><td height="5"></td><td></td></tr>
+                                                                                                            <?php } ?>
+                                                                                                        </table></td>
                                                                                                 <td width="15" height="225" bgcolor="#ffffff"></td>
                                                                                             </tr>
                                                                                                                                                                                     <tr>

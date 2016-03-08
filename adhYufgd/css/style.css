@@ -193,6 +193,9 @@ table.stats {margin: 50px auto;}
 	display: block;
 }
 
+.formulaire .input_fields_wrap input {
+    display: inline;
+}
 .formulaire textarea {
 	width: 500px;
 	height: 250px;
