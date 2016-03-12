@@ -128,23 +128,20 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                 </head>
                 <body style="margin:0px; padding:0px; -webkit-text-size-adjust:none;">
 
-                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:rgb(255, 255, 255)" >
-                        <tbody>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" >
+                        
                             <tr>
                                 <td align="center" bgcolor="#ffffff">
-                                    <table  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
-                                        <tbody>
-
-                                            <tr><!-- visualisation dans navigateur web -->
+                                    <table  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                                        <tr><!-- visualisation dans navigateur web -->
                                                 <td align="center" class="w640"  width="640" height="20"> 
                                                     <span style="color:#000000; font-size:10px;">Si vous ne visualisez pas correctement la lettre d’information, <a href="<?php echo $config["serveur"].$config["root"].$config["li_html"].$uniq_id.".html"; ?>" target="_blank">cliquez ici</a> pour l’ouvrir dans votre navigateur web.</span></td>
 
                                             </tr>
                                             <tr><!-- en tête -->
-                                                <td width="660" bgcolor="#ffffff">
-                                                    <table  class="w660"  width="660"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
-                                                        <tbody>
-                                                            <td width="15" height="127" rowspan="4"></td>
+                                                <td width="660" bgcolor="#FFFFFF">
+                                                    <table  class="w660"  width="660"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                                                           <td width="15" height="127" rowspan="4"></td>
                                                             <td rowspan="4">
                                                                 <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>bandeau.jpg" width="566" height="127" alt=""></td>
                                                             <td width="64" height="18" bgcolor="#E41A18" style="color:#fff; text-align: right;"><?php echo strtoupper($mois); ?>&nbsp;&nbsp;
@@ -165,7 +162,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>bandeau-triangle.jpg" width="64" height="83" alt=""></td>
                                                             </tr>
 
-                                                        </tbody></table>
+                                                       </table>
                                                 </td>
                                             </tr><!-- fin en tête -->
 
@@ -176,9 +173,8 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
 
                                             <tr> <!-- Edito -->
-                                                <td width="660" bgcolor="#ffffff" >
+                                                <td width="660" bgcolor="#fff" >
                                                     <table  class="w660"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
-                                                        <tbody>
                                                             <tr>
                                                                 <td width="40" height="166">
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>spacer.gif" width="40" height="166" alt=""></td>
@@ -192,7 +188,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                 <td width="40" height="166">
                                                                 </td>
                                                             </tr>
-                                                        </tbody>
+                                                   
                                                     </table>
                                                 </td>
                                             </tr><!-- Fin Edito -->
@@ -206,7 +202,6 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                             <tr><!-- A la une -->
                                                 <td width="660">
                                                     <table  class="w660"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#ececec">
-                                                        <tbody>
                                                             <tr>
 
                                                                 <td width="15" rowspan="9">
@@ -274,7 +269,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                             </tr>
                                                             <tr><td colspan="12" height="16" bgcolor="#ECECEC"></td></tr>
 
-                                                                            </tbody>
+                                                                           
                                                                             </table>
                                                                             </td>
                                                                             </tr><!-- Fin A la une -->
@@ -288,10 +283,8 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
 
                                                                             <tr> <!-- Arret métier -->
-                                                                                <td width="660" >
-                                                                                    <table  class="w630"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
-                                                                                        <tbody>
-
+                                                                                <td width="660"  bgcolor="#FFFFFF">
+                                                                                    <table  class="w630"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
                                                                                             <tr>
                                                                                                 <td width="40" rowspan="9"></td>
                                                                                                 <td width="590" height="20" colspan="5"></td>
@@ -352,7 +345,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                                 </td>
                                                                                             </tr>
 
-                                                                                        </tbody>
+                                                                                 
                                                                                     </table>
                                                                                 </td>
                                                                             </tr> <!-- Fin Arret métier -->
@@ -366,7 +359,6 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                             <tr><!--Actualités  -->
                                                                                 <td width="660" bgcolor="#ebd9e5">
                                                                                     <table  class="w630"  width="660" cellpadding="0" cellspacing="0" border="0" >
-                                                                                        <tbody>
                                                                                             <tr>
                                                                                                 <td width="15" height="298" rowspan="13"></td>
                                                                                                 <td width="25" height="298" rowspan="13"></td>
@@ -410,7 +402,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                                 <td height="18" colspan="8">
                                                                                                 </td>
                                                                                             </tr>
-                                                                                        </tbody>
+                                                                                       
                                                                                     </table>
                                                                                 </td>
                                                                             </tr><!--Fin Actualités  -->
@@ -418,9 +410,8 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
 
                                                                             <tr>  <!-- pied de page -->
-                                                                                <td width="660" height="298">
-                                                                                    <table  class="w660"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
-                                                                                        <tbody>
+                                                                                <td width="660" height="298" bgcolor="#FFFFFF">
+                                                                                    <table  class="w660"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
                                                                                             <tr>
                                                                                                 <td width="15" height="234" rowspan="7"></td>
                                                                                                 <td width="630" height="25"></td>
@@ -448,19 +439,19 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                                             <tr>
                                                                                                 <td width="630" height="19"></td>
                                                                                             </tr>
-                                                                                        </tbody>
+                                                                                        
                                                                                     </table>
                                                                                 </td>
                                                                             </tr><!-- fin pied de page -->
 
 
 
-                                                                            </tbody>
+                                                                            
                                                                             </table><!-- main content -->
                                                                             </td><!-- align center -->
                                                                             </tr>
 
-                                                                            </tbody>
+                                                                            
                                                                             </table>  <!-- width 100% -->
 
 
