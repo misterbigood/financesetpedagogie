@@ -80,7 +80,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                 <style type="text/css">
                     /* Fonts and Content */
                     body, td { font-family: Arial, Helvetica, Geneva, sans-serif; font-size:11px; }
-                    body { background-color: #fff;  
+                    body { background-color: #ffffff;  
                            margin: 0; padding: 0;
                            -webkit-text-size-adjust:none; 
                            -ms-text-size-adjust:none; 
@@ -173,8 +173,8 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
 
 
                                             <tr> <!-- Edito -->
-                                                <td width="660" bgcolor="#fff" >
-                                                    <table  class="w660"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
+                                                <td width="660" bgcolor="#FFFFFF" >
+                                                    <table  class="w660"  width="660" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
                                                             <tr>
                                                                 <td width="40" height="166">
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>spacer.gif" width="40" height="166" alt=""></td>
