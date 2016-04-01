@@ -96,7 +96,7 @@ require("libraries/secure/fonctions.req.php");
                     <td><?php echo $data_unseries["mois"]." ".$data_unseries["annee"]; ?></td>
 					<td><?php echo utf8_encode($config["statut_li"][$value["actif_li"]]); ?></td>
                                         <td><?php if($value["datepremierenvoi"] <> "0000-00-00 00:00:00") {echo $value["datepremierenvoi"];} else {echo "Envoi non débuté";}?></td>
-                    <td><?php if($value["actif_li"] == 2 || $value["actif_li"] == -1) {echo calcul_date_fin($value["uniq_id"], $value["datepremierenvoi"], $config["max_mail_periode"],  $config["delai_periode_cron"]);} else {echo "Envoi non débuté";} ?></td>
+                    <td><?php if($value["actif_li"] == 2 || $value["actif_li"] < 0) {echo calcul_date_fin($value["uniq_id"], $value["datepremierenvoi"], $config["max_mail_periode"],  $config["delai_periode_cron"]);} else {echo "Envoi non débuté";} ?></td>
                     <td><?php if($value["datedernierenvoi"] <> "0000-00-00 00:00:00") {echo $value["datedernierenvoi"];} else {echo "Envoi non terminé";} ?></td>
 				</tr>
                 

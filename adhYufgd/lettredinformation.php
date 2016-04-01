@@ -88,7 +88,7 @@ require("libraries/secure/fonctions.req.php");
          <tbody>
          	<?php 
 			// Récupération des données
-			$tableau_classe = liste_li("","actif_li <> '-2'","","");
+			$tableau_classe = liste_li("","","","");
 			 foreach($tableau_classe as $key => $value)
 			 {
 				 $data_unseries = unserialize($value["dataseries"]);
@@ -105,7 +105,7 @@ require("libraries/secure/fonctions.req.php");
                     <td><?php if($value["actif_li"]>=0) {?><a href="lettredinformation-edit.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Modifier la lettre d'information"><img src="medias/icones/news-edit.png" alt="Modifier la lettre d'information" /></a><?php } ?>
                     <?php if($value["actif_li"] ==-1) {?><a href="lettredinformation-activation.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Réactiver la lettre d'information"><img src="medias/icones/news-edit.png" alt="Réactiver la lettre d'information" /></a><?php } ?>
                     <a href="lettredinformation-sup.php?uniq_id=<?php echo $value["uniq_id"]; ?>" title="Supprimer la lettre d'information"><img src="medias/icones/news-del.png" alt="Supprimer la lettre d'information" /></a>
-                    <?php if($value["actif_li"] ==-1) {?> <a href="<?php echo $config["serveur"].$config["root"].$config["li_html"].$value['uniq_id'].".html"; ?>" target="_blank"> <?php } 
+                    <?php if($value["actif_li"] < 0 ) {?> <a href="<?php echo $config["serveur"].$config["root"].$config["li_html"].$value['uniq_id'].".html"; ?>" target="_blank"> <?php } 
                     else {?><a href="lettredinformation-html-create.php?uniq_id=<?php echo $value["uniq_id"]; ?>" target="_blank" title="Afficher la lettre d'information"><?php } ?><img src="medias/icones/news-visu.png" alt="Afficher les détails de la lettre d'information"/></a></td>
 				</tr>
                 
