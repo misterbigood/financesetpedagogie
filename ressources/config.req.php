@@ -23,9 +23,9 @@ $config["li_images"] 	= $config["newsletter"]."images/";
 $config["li_html"] 		= $config["newsletter"]."html/";
 
 // Configuration mailing
-$config["max_mail_periode"] = 20;
+$config["max_mail_periode"] = 100;
 $config["delai_periode_cron"] = 10; // Délai en minutes entre l'appel des tâches cron
 
 // Configuration administration
-$config["statut_li"]= array("-2" => "Archivée", "-1" => "Envoi clos", "0" => "Brouillon", "1" => "Activée", "2" => "Envoi en cours");
+$config["statut_li"]= array("-2" => "Archiv&eacute;e", "-1" => "Envoi clos", "0" => "Brouillon", "1" => "Activ&eacute;e", "2" => "Envoi en cours");
 ?>

@@ -10,7 +10,7 @@
 	
 // 1:  Déterminer quelle est la lettre d'information à envoyer
 $log_file = fopen("journalenvoi.txt", "a+");
-fputs($log_file, date("Y-m-d H:i:s")."Essai envoi\n");
+fputs($log_file, date("Y-m-d H:i:s")." - Script lancé ---\n");
  
 $request_string_li = "SELECT id_li, uniq_id, li_titre, numero, datepremierenvoi, datedernierenvoi, actif_li FROM lettredinformation WHERE actif_li > 0 AND dateactivationenvoi < '".date("Y-m-d H:i:s")."' ORDER BY dateactivationenvoi ASC LIMIT 1";
 $request = mysql_query($request_string_li);
@@ -18,7 +18,7 @@ $nbre_resultat = mysql_num_rows($request);
 
 if ($nbre_resultat == 0) {
 	echo "Aucune lettre d'information à envoyer";
-        fputs($log_file, date("Y-m-d H:i:s")."Stade 1: Aucune lettre à envoyer\n");
+        fputs($log_file, date("Y-m-d H:i:s")." Stade 1: Aucune lettre à envoyer -----------------------------------\n");
 }
 else {
         
@@ -30,7 +30,7 @@ else {
 	$datepremierenvoi = utf8_encode($resultat["datepremierenvoi"]);
 	$datedernierenvoi = utf8_encode($resultat["datedernierenvoi"]);
 	$numero = $resultat["numero"];
-        fputs($log_file, date("Y-m-d H:i:s")."Stade 2: Traitement LI: $uniq_id_li - N°: $numero ------------------------------ \n");
+        fputs($log_file, date("Y-m-d H:i:s")." Stade 2: Traitement LI: $uniq_id_li - N : $numero ------------------------------ \n");
 	
 	// 2: Déterminer les prochains destinataires
 	$request_string_users = 	"SELECT A.uniq_id, A.mail FROM abonnes A WHERE A.actif_user = 1 AND A.uniq_id NOT IN (SELECT DISTINCT E.uniq_id_user FROM envois E WHERE E.uniq_id_li = '".$uniq_id_li."' AND E.statut = 'ok' ) ORDER BY A.dateabonnement ASC LIMIT ".$config["max_mail_periode"];
@@ -40,7 +40,7 @@ else {
         $nbre_abonnes_envoi = mysql_num_rows($request_users);
 	
 	if($nbre_abonnes_envoi > 0) {
-                fputs($log_file, date("Y-m-d H:i:s")."Stade 3: Nbre abo: $nbre_abonnes_envoi\n");
+                fputs($log_file, date("Y-m-d H:i:s")." Stade 3: Nbre abo: $nbre_abonnes_envoi\n");
 		$mail             = new PHPMailer();
 		$mail->IsSendmail();
 		$mail->CharSet = "UTF-8";
@@ -52,7 +52,6 @@ else {
 		// 3: Préparation du mail
 		$body             = $mail->getFile($config["li_html"].$uniq_id_li."-part1.html");
 		
-
     // Envoi des mails à chacun des abonnés
 		while($resultat_users = mysql_fetch_array($request_users))
 		{
@@ -63,10 +62,10 @@ else {
 			$body			 .= "?uniq_id=".$uniq_id_u."&mail=".utf8_encode($resultat_users["mail"]);
 			$body			 .= $mail->getFile($config["li_html"].$uniq_id_li."-part2.html");
 			$mail->MsgHTML($body);
-			$send_ok[$uniq_id_u]["sent"]=$mail->Send();
-			$send_ok[$uniq_id_u]["error"]= $mail->ErrorInfo;
-			$mail->ClearAddresses();
-                        fputs($log_file, date("Y-m-d H:i:s")."Stade 4: Envoi mail - User: $uniq_id_u / Mail: ".utf8_encode($resultat_users["mail"])." \n");
+			//$send_ok[$uniq_id_u]["sent"]=$mail->Send();
+			//$send_ok[$uniq_id_u]["error"]= $mail->ErrorInfo;
+			//$mail->ClearAddresses();
+                        fputs($log_file, date("Y-m-d H:i:s")." Stade 4: Envoi mail - User: $uniq_id_u / Mail: ".utf8_encode($resultat_users["mail"])." \n");
 			
 		}
 	// Fin d'envoi des mails
@@ -75,7 +74,7 @@ else {
 		foreach($uniq_id_user as $key => $value) {
 				if($send_ok[$value]["sent"] <> FALSE)
 				{
-                                    fputs($log_file, date("Y-m-d H:i:s")."Stade 5: Envoi ok\n");
+                                    fputs($log_file, date("Y-m-d H:i:s")." Stade 5: User: $value - Envoi ok\n");
                                     $date_print = date("Y-m-d H:i:s");
 					$request_string = "INSERT INTO envois VALUES('', '".$value."', '".$uniq_id_li."', '".$date_print."', 'ok' )";
                                         $request_log = mysql_query($request_string);
@@ -87,11 +86,11 @@ else {
 				}
 				else
 				{
-					fputs($log_file, date("Y-m-d H:i:s")."Stade 6: Envoi échec - User: $value\n");
+					fputs($log_file, date("Y-m-d H:i:s")." Stade 6: User: $value - Echec envoi\n");
                                         $request_string = "INSERT INTO envois VALUES('', '".$value."', '".$uniq_id_li."', '".date("Y-m-d H:i:s")."', '".$send_ok[$value]["error"]."' )";
 				 	$request_log = mysql_query($request_string);
 				  	if($request_log == FALSE) {
-					   fputs($log_file, date("Y-m-d H:i:s").$value.":".$uniq_id_li.": échec log dans la base :".$mail->ErrorInfo."\n");
+					   fputs($log_file, date("Y-m-d H:i:s")." User: $value - Echec log dans la base :".$mail->ErrorInfo."\n");
 				   	}
 				}
 		}
@@ -101,31 +100,29 @@ else {
 	
 	// Traitement du premier envoi
 		if($actif_li == 1) {
-                        fputs($log_file, date("Y-m-d H:i:s")."Stade 7: 1er envoi\n");
+                        fputs($log_file, date("Y-m-d H:i:s")." Stade 7: 1er envoi\n");
 			$request_string_premier_envoi = "UPDATE lettredinformation SET datepremierenvoi = '".date("Y-m-d H:i:s")."', actif_li = '2' WHERE uniq_id= '".$uniq_id_li."' LIMIT 1";
 			$request_premier_envoi = mysql_query($request_string_premier_envoi);
 		}
 	// Traitement de la fin des envois, hypothèse 1: le nombre d'abonnés renvoyés est inférieur au nbre max par envoi
 		if( ($nbre_abonnes_envoi < $config["max_mail_periode"]) && ($datedernierenvoi == "0000-00-00 00:00:00") ){
-			fputs($log_file, date("Y-m-d H:i:s")."Stade 8: Fin des envois: hypothèse 1 - Renseignement de la base et suppression du log des envois\n");
+			fputs($log_file, date("Y-m-d H:i:s")." Stade 8: Fin des envois: hypothèse 1 - Renseignement de la base - Envoi clos\n");
                         $request_string_dernier_envoi = "UPDATE lettredinformation SET datedernierenvoi = '".date("Y-m-d H:i:s")."', actif_li = '-1' WHERE uniq_id= '".$uniq_id_li."' LIMIT 1";
 			$request_dernier_envoi = mysql_query($request_string_dernier_envoi);
 		}
 	}
 	else
 	{
-		fputs($log_file, date("Y-m-d H:i:s")."Stade 9: Pas d'abo à envoyer\n");
+		fputs($log_file, date("Y-m-d H:i:s")." Stade 9: LI transmise à tous les abos\n");
                 // Hypothèse n°2 de fin d'envoi: aucun abonné à qui envoyer la lettre, alors vérification que le dernier envoi a été renseigné, sinon renseignement
 		if($datedernierenvoi == "0000-00-00 00:00:00" && $request_users <> FALSE) {
-			fputs($log_file, date("Y-m-d H:i:s")."Stade 10: Fin des envois: hypothèse 2 - Renseignement de la base et suppression du log des envois\n");
+			fputs($log_file, date("Y-m-d H:i:s")." Stade 10: Fin des envois: hypothèse 2 - Renseignement de la base - Envoi clos \n");
                         $request_string_dernier_envoi = "UPDATE lettredinformation SET datedernierenvoi = '".date("Y-m-d H:i:s")."', actif_li = '-1' WHERE uniq_id= '".$uniq_id_li."' LIMIT 1";
 			$request_dernier_envoi = mysql_query($request_string_dernier_envoi);
                 }
                 else {
-                    fputs($log_file, date("Y-m-d H:i:s")."Stade 11: Erreur request_users\n");
+                    fputs($log_file, date("Y-m-d H:i:s")." Stade 11: Erreur request_users\n");
                     
-                    // Erreur car fichier trop important --> dump de la base, archivage des news et vidage des envois terminés
-
                     $request_string_li_sup = "SELECT id_li, uniq_id FROM lettredinformation WHERE actif_li = '-1' ORDER BY id_li ASC";
                     $request_sup = mysql_query($request_string_li_sup);
                     $nbre_resultat_sup = mysql_num_rows($request);
@@ -140,12 +137,12 @@ else {
                     foreach($uniq_id_table_to_del as $uniq_id_del)
                     {
                         $request_string_archive = "UPDATE lettredinformation  SET actif_li = '-2' WHERE uniq_id = '".$uniq_id_del."'";
-                        print_r($request_string_archive.'<br>');
                         $request_archive = mysql_query($request_string_archive);
+                        fputs($log_file, date("Y-m-d H:i:s")." Archivage des LI n-2 et antérieures\n");
                         
                         $request_string_del_envois ="DELETE FROM envois WHERE uniq_id_li = '".$uniq_id_del."'";
-                        print_r($request_string_del_envois.'<br>');
                         $request_del_envois = mysql_query($request_string_del_envois);
+                        fputs($log_file, date("Y-m-d H:i:s")." Suppression des logs d'envois LI n-2 et antérieures\n");
                     }
                 }
 	}
