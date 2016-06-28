@@ -1,0 +1,66 @@
+2016-04-03 19:09:00 Stade 1: Traitement LI: beded6150fffe1f23d16f6b1b4d23a21 - N : 92 ------------------------------ 
+2016-04-03 19:09:00 Stade 2: Nbre abo: 10
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 2051f1b655c159ddbff15944dc1b9e08 / Mail: acse175@free.fr 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 08d9525f48f38ca0765107b630595b3b / Mail: ad15.siege@restosducoeur.org 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 07a8eeed0d1c5587cbfc7ee6ebaa00d4 / Mail: ad22i.veroniquecorbel@restosducoeur.org 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 27fe1dd68b206f61477d9cc4df8c9d78 / Mail: adavem80@fcvnet.net 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 1ad528243048f1b2ebea82f902492e8b / Mail: adcproprete@adcproprete.com 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 6dc9c9b4eb4a0e36989fead27577602a / Mail: adeguigne@lefigaro.fr 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 7a5f81e63dceb3ad4defe2b5f0cb6487 / Mail: adelacour@fbf.fr 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 566a3eba3f8a165513fd84eb1e52f74b / Mail: adiph-ev@adiphev.info 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: 1195b706d5b4c0454507e33c3c1ed154 / Mail: adjointdirection.cfp@groupesaintmichel.fr 
+2016-04-03 19:09:00 Stade 3: Envoi mail - User: a09edb5bc71198de80e40112f3df2296 / Mail: afabien-ba50@hotmail.fr 
+2016-04-03 19:09:00 Stade 4: User: 2051f1b655c159ddbff15944dc1b9e08 - Envoi ok
+2016-04-03 19:09:00 User: 2051f1b655c159ddbff15944dc1b9e08 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 08d9525f48f38ca0765107b630595b3b - Envoi ok
+2016-04-03 19:09:00 User: 08d9525f48f38ca0765107b630595b3b - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 07a8eeed0d1c5587cbfc7ee6ebaa00d4 - Envoi ok
+2016-04-03 19:09:00 User: 07a8eeed0d1c5587cbfc7ee6ebaa00d4 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 27fe1dd68b206f61477d9cc4df8c9d78 - Envoi ok
+2016-04-03 19:09:00 User: 27fe1dd68b206f61477d9cc4df8c9d78 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 1ad528243048f1b2ebea82f902492e8b - Envoi ok
+2016-04-03 19:09:00 User: 1ad528243048f1b2ebea82f902492e8b - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 6dc9c9b4eb4a0e36989fead27577602a - Envoi ok
+2016-04-03 19:09:00 User: 6dc9c9b4eb4a0e36989fead27577602a - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 7a5f81e63dceb3ad4defe2b5f0cb6487 - Envoi ok
+2016-04-03 19:09:00 User: 7a5f81e63dceb3ad4defe2b5f0cb6487 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 566a3eba3f8a165513fd84eb1e52f74b - Envoi ok
+2016-04-03 19:09:00 User: 566a3eba3f8a165513fd84eb1e52f74b - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: 1195b706d5b4c0454507e33c3c1ed154 - Envoi ok
+2016-04-03 19:09:00 User: 1195b706d5b4c0454507e33c3c1ed154 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Stade 4: User: a09edb5bc71198de80e40112f3df2296 - Envoi ok
+2016-04-03 19:09:00 User: a09edb5bc71198de80e40112f3df2296 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:00 Fin session envoi -----------------------------------------------
+2016-04-03 19:09:28 Stade 1: Traitement LI: beded6150fffe1f23d16f6b1b4d23a21 - N : 92 ------------------------------ 
+2016-04-03 19:09:29 Stade 2: Nbre abo: 10
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: 61bc65a38bb64f541fcbde5e96029036 / Mail: afac24@perigord.tm.fr 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: 7aa770ce24b2680d4cd1df66079e644a / Mail: afic@9business.fr 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: bde012eaaa8ceeb6fe8f8a34aad4239a / Mail: aftriloff@yahoo.fr 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: 13c30b0c34caf5944e89d083be56e723 / Mail: agarabedian@agefi.fr 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: 7264c257b884b6414462b802acfc7fb1 / Mail: agat.maisonrelais@gmail.com 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: a2e2595aca6e12f50e214ef98cc7c9fc / Mail: aglae.simonet@entreprendre-pour-apprendre.fr 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: 35e0939c2c49706ba0abe224fbe1034d / Mail: agloux@creditmunicipal.fr 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: cffa9d40fa5a6e8349f02df024567e9b / Mail: agnes.agir@gmail.com 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: d394c7a6f09512636ddadf2d53e9f1bc / Mail: agnes.connan@yahoo.fr 
+2016-04-03 19:09:29 Stade 3: Envoi mail - User: a6aa0c07228c141d2efcd52be8edfd1c / Mail: agnes.ryst@afpa.fr 
+2016-04-03 19:09:29 Stade 4: User: 61bc65a38bb64f541fcbde5e96029036 - Envoi ok
+2016-04-03 19:09:29 User: 61bc65a38bb64f541fcbde5e96029036 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: 7aa770ce24b2680d4cd1df66079e644a - Envoi ok
+2016-04-03 19:09:29 User: 7aa770ce24b2680d4cd1df66079e644a - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: bde012eaaa8ceeb6fe8f8a34aad4239a - Envoi ok
+2016-04-03 19:09:29 User: bde012eaaa8ceeb6fe8f8a34aad4239a - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: 13c30b0c34caf5944e89d083be56e723 - Envoi ok
+2016-04-03 19:09:29 User: 13c30b0c34caf5944e89d083be56e723 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: 7264c257b884b6414462b802acfc7fb1 - Envoi ok
+2016-04-03 19:09:29 User: 7264c257b884b6414462b802acfc7fb1 - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: a2e2595aca6e12f50e214ef98cc7c9fc - Envoi ok
+2016-04-03 19:09:29 User: a2e2595aca6e12f50e214ef98cc7c9fc - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: 35e0939c2c49706ba0abe224fbe1034d - Envoi ok
+2016-04-03 19:09:29 User: 35e0939c2c49706ba0abe224fbe1034d - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: cffa9d40fa5a6e8349f02df024567e9b - Envoi ok
+2016-04-03 19:09:29 User: cffa9d40fa5a6e8349f02df024567e9b - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: d394c7a6f09512636ddadf2d53e9f1bc - Envoi ok
+2016-04-03 19:09:29 User: d394c7a6f09512636ddadf2d53e9f1bc - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Stade 4: User: a6aa0c07228c141d2efcd52be8edfd1c - Envoi ok
+2016-04-03 19:09:29 User: a6aa0c07228c141d2efcd52be8edfd1c - Echec enregistrement dans la base: envoi [ok]
+2016-04-03 19:09:29 Fin session envoi -----------------------------------------------

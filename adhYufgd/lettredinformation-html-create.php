@@ -179,7 +179,7 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                 <td width="40" height="166">
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>spacer.gif" width="40" height="166" alt=""></td>
                                                                 <td>
-                                                                    <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>photo-edito.jpg" width="80" height="166" alt=""></td>
+                                                                    <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>photo-edito2.jpg" width="80" height="166" alt=""></td>
                                                                 <td width="25" height="166">
                                                                 </td>
                                                                 <td width="475" height="166">
