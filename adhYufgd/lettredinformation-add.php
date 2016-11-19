@@ -36,8 +36,11 @@ if(filter_input(INPUT_POST, 'form_send') == 1 )
                                 if($value["etat"] === FALSE) { echo $value["texte"]."<br />"; } 
                                 
                             } ?></p>
+    <p class="erreur"><?php foreach($entli_imgerror as $key => $value) if($value["etat"] == FALSE) echo $value["texte"]."<br />"; ?></p>
     <p class="erreur"><?php foreach($alu_imgerror as $key => $value) if($value["etat"] == FALSE) echo $value["texte"]."<br />"; ?></p>
-    <p class="erreur"><?php foreach($z_imgerror as $key => $value) if($value["etat"] == FALSE) echo $value["texte"]."<br />"; ?></p>
+    <p class="erreur"><?php foreach($act1_imgerror as $key => $value) if($value["etat"] == FALSE) echo $value["texte"]."<br />"; ?></p>
+    <p class="erreur"><?php foreach($act2_imgerror as $key => $value) if($value["etat"] == FALSE) echo $value["texte"]."<br />"; ?></p>
+    <p class="erreur"><?php foreach($am_imgerror as $key => $value) if($value["etat"] == FALSE) echo $value["texte"]."<br />"; ?></p>
     <?php
 	}
 	else
@@ -95,6 +98,9 @@ else
         <label for="lienfrancais">Adresse http du PDF en français</label>
         <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/xxxxxxxxxxx.pdf)</span>
         <input type="text" name="lienfrancais">
+        <label for="entli_image">Image associée à l'édito</label>
+        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
+        <input type="file" name="entli_image">
         <label for="li_chapeau">Edito</label>
         <textarea name="li_chapeau" id="li_chapeau" class="chapeau"></textarea>
     </div>

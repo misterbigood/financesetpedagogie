@@ -18,7 +18,7 @@ $nbre_resultat = mysql_num_rows($request);
 
 if ($nbre_resultat == 0) {
 	echo "Aucune lettre d'information à envoyer";
-        fputs($log_file, date("Y-m-d H:i:s")."Stade 1: Aucune lettre à envoyer\n");
+        //fputs($log_file, date("Y-m-d H:i:s")."Stade 1: Aucune lettre à envoyer\n");
 }
 else {
         
@@ -66,7 +66,7 @@ else {
 			$send_ok[$uniq_id_u]["sent"]=$mail->Send();
 			$send_ok[$uniq_id_u]["error"]= $mail->ErrorInfo;
 			$mail->ClearAddresses();
-                        fputs($log_file, date("Y-m-d H:i:s")."Stade 4: Envoi mail - User: $uniq_id_u / Mail: ".utf8_encode($resultat_users["mail"])." \n");
+                        //fputs($log_file, date("Y-m-d H:i:s")."Stade 4: Envoi mail - User: $uniq_id_u / Mail: ".utf8_encode($resultat_users["mail"])." \n");
 			
 		}
 	// Fin d'envoi des mails
@@ -75,7 +75,7 @@ else {
 		foreach($uniq_id_user as $key => $value) {
 				if($send_ok[$value]["sent"] <> FALSE)
 				{
-                                    fputs($log_file, date("Y-m-d H:i:s")."Stade 5: Envoi ok\n");
+                                    //fputs($log_file, date("Y-m-d H:i:s")."Stade 5: Envoi ok\n");
                                     $date_print = date("Y-m-d H:i:s");
 					$request_string = "INSERT INTO envois VALUES('', '".$value."', '".$uniq_id_li."', '".$date_print."', 'ok' )";
                                         $request_log = mysql_query($request_string);

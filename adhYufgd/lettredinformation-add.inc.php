@@ -69,6 +69,42 @@ isset($_SESSION["CONNEXION_VALIDE"]) or header("location: http://".$_SERVER['HTT
 
 // 2.2 : Récupérer les fichiers envoyés (format images, png, gif ou jpeg)
 $extensions_valides = array( "jpg", "jpeg", "gif", "png");
+if(isset($_FILES["entli_image"]) && $_FILES["entli_image"]["name"] <> "")
+{
+	switch ($_FILES["entli_image"]["error"] )
+	{
+		case UPLOAD_ERR_NO_FILE:
+			$entli_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'en-tête de la lettre d'information a échoué.");
+			break;
+		case UPLOAD_ERR_INI_SIZE:
+			$entli_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'en-tête de la lettre d'information est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_FORM_SIZE:
+			$entli_imgerror[] = array( "etat" => FALSE, "texte" => "La taille de l'image associée à l'en-tête de la lettre d'information est trop importante. L'image n'a pas été chargée.");
+			break;
+		case UPLOAD_ERR_PARTIAL:
+			$entli_imgerror[] = array( "etat" => FALSE, "texte" => "Le transfert de l'image associée à l'en-tête de la lettre d'information a échoué.");
+			break;
+		default: 
+			$entli_imgerror[]  = array( "etat" => TRUE, "texte" => "");
+			$extension_entli_image = strtolower(  substr(  strrchr($_FILES['entli_image']['name'], '.')  ,1)  );
+			if( !in_array($extension_entli_image,$extensions_valides) ) $entli_imgerror[] = array( "etat" => FALSE, "texte" => "L'extension de l'image associée à l'en-tête de la lettre d'information n'est pas autorisée.");
+
+	}
+	$entli_countimgerrors = 0;
+	foreach($entli_imgerror as $key => $value) if($value["etat"] == FALSE) $entli_countimgerrors++;
+	if($entli_countimgerrors == 0) {
+		$entli_image_name = md5(uniqid(rand(), true)).".".$extension_entli_image;
+		$entli_resultat = move_uploaded_file($_FILES["entli_image"]["tmp_name"], "../".$config["images"].$entli_image_name);
+	}
+	else $entli_image_name="";
+if (!isset($entli_resultat) || $entli_resultat == FALSE) $entli_imgerror[] = array( "etat" => FALSE, "texte" => "L'image associée à l'en-tête de la lettre d'information n'a pu être transférée.");
+}
+else {
+	$entli_imgerror[] = array( "etat" => TRUE, "texte" => "");
+	$entli_image_name="";
+}
+
 if(isset($_FILES["alu_image"]) && $_FILES["alu_image"]["name"] <> "")
 {
 	switch ($_FILES["alu_image"]["error"] )
@@ -220,6 +256,7 @@ $datatoserialize = array(
 	"mois"				=> $mois,
 	"annee"				=> $annee,
 	"li_chapeau"		=> $li_chapeau,
+        "entli_image"           => $entli_image_name,
 	"alu_titre"			=> $alu_titre,
 	"alu_chapeau"		=> $alu_chapeau,
 	"alu_article"		=> $alu_article,

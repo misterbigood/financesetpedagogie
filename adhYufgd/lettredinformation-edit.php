@@ -40,7 +40,25 @@ if( isset($_POST["form_send"]) && $_POST["form_send"] == 1 )
                     }
                 }
                 ?></p>
+    <p class="erreur"><?php                foreach ($entli_imgerror as $key => $value) {
+                    if ($value["etat"] == FALSE) {
+                        echo $value["texte"] . "<br />";
+                    }
+                }
+                ?></p>
     <p class="erreur"><?php                foreach ($alu_imgerror as $key => $value) {
+                    if ($value["etat"] == FALSE) {
+                        echo $value["texte"] . "<br />";
+                    }
+                }
+                ?></p>
+    <p class="erreur"><?php                foreach ($act1_imgerror as $key => $value) {
+                    if ($value["etat"] == FALSE) {
+                        echo $value["texte"] . "<br />";
+                    }
+                }
+                ?></p>
+    <p class="erreur"><?php                foreach ($act2_imgerror as $key => $value) {
                     if ($value["etat"] == FALSE) {
                         echo $value["texte"] . "<br />";
                     }
@@ -148,7 +166,15 @@ else
         <label for="lienfrancais">Adresse http du PDF en français</label>
         <span>(Adresse complète sous la forme http://www.finances-pedagogie.fr/lettredinformation/xxxxxxxxxxx.pdf)</span>
         <input type="text" name="lienfrancais" value="<?php echo $tableau_classe[0]["lienpdffr"]; ?>" />
-       
+        <?php if($data_unseries["entli_image"]<>"") { ?>
+        	<label for="entli_actuelle">Image actuelle: </label><img src="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["entli_image"]); ?>" height="80" name="entli_actuelle" />
+            <input type="hidden" name="entli_image_old" value="<?php echo stripslashes($data_unseries["entli_image"]); ?>" />
+            <label for="actif">Supprimer l'image actuelle</label>
+            <input type="checkbox" name="entli_suppr" id="entli_suppr" value="<?php echo "../".stripslashes($data_unseries["image_path"]. $data_unseries["entli_image"]); ?>" />
+        <?php } ?>
+            <label for="entli_image">Associer une nouvelle image</label>
+        <span>(L'image ne doit pas dépasser une taille de 1Mo; les extensions autorisées sont: gif, png, jpg ou jpeg)</span>
+        <input type="file" name="entli_image" />
         <label for="li_chapeau">Edito</label>
         <textarea name="li_chapeau" id="li_chapeau" class="chapeau"><?php echo stripslashes($data_unseries["li_chapeau"]); ?></textarea>
     </div>

@@ -26,6 +26,7 @@ $annee					=	stripslashes($data_unseries["annee"]);
 $lienpdffr				=	$tableau_classe[0]["lienpdffr"];
 $li_chapeau				=	stripslashes($data_unseries["li_chapeau"]);
 $li_titre				=	stripslashes($tableau_classe[0]["li_titre"]);
+$entli_image				=	stripslashes($data_unseries["entli_image"]);
 
 $image_path				=	stripslashes($data_unseries["image_path"]);
 
@@ -179,7 +180,9 @@ $ml_article				=	stripslashes($data_unseries["ml_article"]);
                                                                 <td width="40" height="166">
                                                                     <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>spacer.gif" width="40" height="166" alt=""></td>
                                                                 <td>
-                                                                    <img src="<?php echo $config["serveur"].$config["root"].$config["li_images"]; ?>photo-edito2.jpg" width="80" height="166" alt=""></td>
+                                                                     <?php if(file_exists($config["fromadmin"].$image_path.$entli_image) && is_file($config["fromadmin"].$image_path.$entli_image) ) { ?>
+                                                                     <img src="<?php echo $config["fromadmin"].$image_path.$entli_image; ?>" width="80" height="166" alt=""><?php } ?>
+                                                                </td>
                                                                 <td width="25" height="166">
                                                                 </td>
                                                                 <td width="475" height="166">
